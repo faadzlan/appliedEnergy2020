@@ -48,10 +48,10 @@
 \let\WriteBookmarks\relax
 \def\floatpagepagefraction{1}
 \def\textpagefraction{.001}
-\shorttitle{Lift Evolution in a Pure Cruciform Energy Harvester}
+\shorttitle{Energy Harvesting from an Angled Cruciform}
 \shortauthors{A. Adzlan, M.S.M. Ali and S.A. Zaki}
 
-\title [mode = title]{Temporal Evolution of Lift in a Pure Cruciform System for Energy Harvesting}                      
+\title [mode = title]{Vortex-induced Vibration of an Angled Cruciform for Energy Harvesting}                      
 %\tnotemark[1,2]
 %
 %\tnotetext[1]{This document is the results of the research
@@ -177,16 +177,16 @@
 \end{abstract}
 
 \begin{graphicalabstract}
-  \includegraphics[width=1\textwidth]{figs/graphicalAbstract}
+  \includegraphics[width=0.75\textwidth]{figs/graphicalAbstract}
 \end{graphicalabstract}
 
 % Highlights
 
 \begin{highlights}
-\item Two main vibration regimes exist in a pure cruciform energy harvester
-\item Alternating lift due to Karman and streamwise vortex exist in superposition
-\item Streamwise vortex disrupts the periodicity and self-similarity of alternating lift
-\item Power output can increase by reducing energy lost to production of Karman vortex
+\item Three main energy harvesting regimes were identified, based on the cruciform angle
+\item The streamwise-vortex induced vibration regime produces power in the order of \SI{1}{\milli\watt}
+\item Power output is below \SI{1}{\milli\watt} between angles \SI{67.5}{\degree} and \SI{22.5}{\degree}
+\item Power output can achieve up to \SI{10}{\milli\watt}, as the angle is brought closer to \SI{0}{\degree}.
 \end{highlights}
 
 \begin{keywords}
@@ -533,230 +533,208 @@ We provide visual representations of the convergent $\clrms$, $\yrms$ and $\fstr
   \caption{The convergence diagram for $\clrms$. Figure \ref{fig:clrmsGCI}a shows how $\clrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:clrmsGCI}b shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:clrmsGCI}
 \end{figure}
 
-\section{Single plate amplitude and frequency response} \label{sec:singPlateResp}
-\subsection{Amplitude response} \label{ssec:ampResp}
-We compared our experiment and numerical results with those from \citet{Koide2013} and \citet{Nguyen2012} in Fig. \ref{fig:ampFreqComp}. Figure \ref{fig:ampFreqComp}a shows the amplitude response of our single plate experiment and simulation. We use the root-mean-square value of the cylinder displacement to represent the amplitude responses instead of the maximum displacement. The reason for this is twofold: first, using  $\yrms$  facilitates comparison of data with \citet{Nguyen2012} and \citet{Koide2013}, who also used  $\yrms$  in their work. Second, because the cylinder displacement is an intermediate quantity for the estimation of harnessed power \citep{Maruai2017,Maruai2018}, and the usage of root-mean-square amplitude of cylinder displacement gives a direct preview of mean harnessed power.
-
-There is virtually no vibration for both our experiment and simulation when  $\ured \leq \urei$, except for a small peak at $\ured = \urth$. We attribute this peak to the upper branch of KVIV, which still exists, although suppressed due to the cruciform configuration of the system \citep{Shirakashi1989,Nguyen2012}. However, when  $\ured$ exceeds $\urei$, we observe a sudden jump in  $\ured$ right up to about 0.4, for both our experiment and simulation. This we attribute to the formation of the streamwise vortices that drive SVIV.
-
-After the inception of SVIV, the value for  $\yrms$ drops down to approximately 0.3, before recovering to a value that is close to what was observed by \citet{Nguyen2012} and \citet{Koide2013}. This sudden jump followed by a gradual drop and a gradual rise in  $\yrms$ was not found in the works of \citet{Nguyen2012} nor \citet{Koide2013}, even though their experimental parameters are reasonably close to what we use in both our experiment and simulation.
-
+\section{Streamwise vortex-induced vibration regime}\label{sec:svivRegime}
+We begin our exploration with the case of \SI{90}{\degree} and \SI{67.5}{\degree}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{figs/figure10}
-  \caption{The amplitude and frequency response of our cruciform system, compared with results from \citet{Nguyen2012} and \citet{Koide2013}. Figure \ref{fig:ampFreqComp}a shows the amplitude response using $\yrms$, Fig. \ref{fig:ampFreqComp}b the frequency response using $\fstr$ and Fig. \ref{fig:ampFreqComp}c also the frequency response, but using the Strouhal number of vibration.} \label{fig:ampFreqComp}
-\end{figure}
-
-We, therefore, attribute this difference to the higher turbulence level set in our work. The turbulence level in the works of \citet{Nguyen2012}, for example, was  $<2.8\%$ throughout their range of Reynolds number. Instead, the initial turbulence level in our setup, both experimental and numerical, is approximately double that value. Because of this, the turbulence amplification due to the onset of streamwise vortices  \citep{Zhao2018a} --- especially for a circular cylinder-strip plate cruciform \citep{Koide2017} --- is also higher compared to the experiments of \citet{Nguyen2012} and \citet{Koide2013}. This higher compound turbulence warps the dominant vortical structure and introduces an increasing amount of intermittency to the lift signal, and by extension, to the displacement time history of the cylinder.
-
-One can simply inspect the error bars within  $\urei \leq \ured \leq \urte$ in Fig. \ref{fig:ampFreqComp}a to verify the greater sample dispersion within that range of  $\ured$. This intermittency ultimately vanishes as the dominant vortical structures become sufficiently stable to retain enough periodicity in its formation. Our numerical results also seem to support this argument, as evidenced by the time history of  $\ured$ within $\urei \leq \ured \leq \urtt$ in Fig. \ref{fig:cylDispSignal}. There exists a distinct increase in intermittency for the time histories in Fig. \ref{fig:unstableSVIV}, that disappears once  $\ured \geq 23$ as can be seen in Fig. \ref{fig:stableSVIV}.
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.49\textwidth}
-    \includegraphics[width=\textwidth]{figs/figure11a}
-    \caption{}
-    \label{fig:unstableSVIV}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS1}
+    \caption{Amplitude response at $\alpha = \SI{90}{\degree}$.}
+    \label{fig:yStrRMS1}
   \end{subfigure}
 
-  \begin{subfigure}[h]{0.49\textwidth}
-    \includegraphics[width=\textwidth]{figs/figure11b}
-    \caption{}
-    \label{fig:stableSVIV}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS2}
+    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
+    \label{fig:yStrRMS2}
+  \end{subfigure}
+  \caption{The amplitude response as the evolution of normalised RMS amplitude of cylinder displacement in the streamwise vortex-driven vibration regime.} \label{fig:yStrRMSStreamwise}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq5}
+    \caption{Tilt angle $\alpha = \SI{90}{\degree}$.}
+    \label{fig:yStrFreq5}
   \end{subfigure}
 
-  \caption{The time series of cylinder displacement between $\urei \leq \ured \leq \urtt$. Fig. \ref{fig:unstableSVIV} groups the cylinder displacement signal between $\urei \leq \ured \leq \urte$, where there seems to be an increase in intermittency in the displacement signal, while Fig. \ref{fig:stableSVIV} groups the cylinder displacement signal between $\urel \leq \ured \leq \urtt$, where the intermittency in the displacement signal vanishes.} \label{fig:cylDispSignal}
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq4}
+    \caption{Tilt angle $\alpha = \SI{67.5}{\degree}$.}
+    \label{fig:yStrFreq4}
+  \end{subfigure}
+  \caption{The normalised cylinder displacement frequency in the streamwise vortex-driven vibration regime.} \label{fig:yStrFreqStreamwise}
 \end{figure}
-
-\subsection{Frequency response} \label{ssec:freResp}
-Figure \ref{fig:ampFreqComp}b compares the frequency responses of our experiment and numerical results with those in \citet{Nguyen2012} and \citet{Koide2013}. We use the normalised frequency  $\fstr$ in Fig. \ref{fig:ampFreqComp}b and the vibration Strouhal number in Fig. \ref{fig:ampFreqComp}c to aid comparison between the results. In our experiments, the value for  $\fstr$ always fall close to unity. However, if we inspect the size of the error bars, we observed a range of  $\ured$ where there exists a higher degree of variance in the sample measurements between  $\ursi \leq \ured \leq \urni$. The reason for this lies in  $\ursi \leq \ured \leq \urni$ coinciding with the desynchronization region of the KVIV regime up to  $\ured = \urei$, and then overlaps with the intermittent vibration of SVIV up to  $\ured = \urni$. Within these two regimes, the cylinder displacement time history -- from which  $\fstr$ is calculated -- varies considerably in amplitude and periodicity, resulting in larger error bars. In Fig. \ref{fig:ampFreqComp}c we can see the overall trend being more similar to the results of \citet{Koide2013} rather than \citet{Nguyen2012}, which is likely due to a higher similarity between our experimental setup with that of \citet{Koide2013}, most striking in terms of the gap ratio  $G = g/D$, which is identical.
-
-Our numerical results exhibit a significantly different trend, but only up to  $\ured = \urse$. We observe in Fig. \ref{fig:ampFreqComp}b that the vibration frequency of the cylinder increases linearly, even past  $\ured = \urth$, which is the upper branch of the KVIV regime. Converting  $\fstr$ into Strouhal number reveals that the cylinder is vibrating close to the Karman frequency of the system. The Karman frequency of a smooth, fixed circular cylinder refers to the shedding frequency of Karman vortices in its wake. An empirical relationship with Reynolds number exists for  $250 < \re < 2 \times 10^{5}$, which is the following \citep{Blevins1990}.
-
-\begin{equation}
-  \st = 0.198 \left( 1 - \frac{19.7}{\re} \right)
-  \label{eq:karmanSheddingFreq}
-\end{equation}
-
-The values we get using Eq. \ref{eq:karmanSheddingFreq} are nearly constant about $0.19$ for  $\ured \leq \ursi$. The slight discrepancy from our Strouhal number mean ( $\approx 0.16$) in the   $\ured \leq \ursi$ range can be ascribed to us studying a cruciform structure instead of the smooth circular cylinder upon which Eq. \ref{eq:karmanSheddingFreq} was originally based \citep{Blevins1990}.
-
-The discrepancies found especially in Fig. \ref{fig:ampFreqComp}b most probably stem from the same reasons explained by \citet{Nguyen2012}. The lowest  $\yrms$ recorded in our simulation within  $\urth \leq \ured \leq \ursi$ was in the order of $10^{-5}$ \si{\metre} (10 microns). A numerical study has no problem recording vibration of this order as the precision of the numerical solution is only limited by the processor architecture. Experimental work, however, requires not only the sensitivity but also the isolation from the background noise that forces the cylinder to vibrate close to the natural frequency of the system  $\fn$ \citep{Nguyen2012}, which consequently overpowers this minimal amplitude vibration. Once streamwise vortices form, however, their shedding and cylinder vibration synchronises close to $\fn$, thus locking the normalised vibration frequency back to  $\fstr \approx 1$.
-
-
-\section{Temporal evolution of the lift coefficient} \label{sec:tempEvo}
-
-\subsection{Ensemble empirical mode decomposition and Hilbert transform} \label{ssec:eemd}
-To obtain a clearer picture of the temporal characteristics of the lift and cylinder displacement signals, we decided to employ the ensemble empirical mode decomposition (EEMD) method \citep{Huang1998,Wu2008} on the signals, and compute their instantaneous phase lag, frequency and amplitude using the Hilbert transform.
-
-The Hilbert transform (HT) has been used in the past to study the instantaneous phase and frequencies of KVIV \citep{Khalak1999}. However, the signal must be monochromatic if we are to obtain a physically meaningful result after applying HT. EEMD is a way to pre-process the signal and get components that (1) have zero mean, and (2) have an equal number of extrema and zero crossings, or they differ only by one. Functions that fulfil these criteria are called intrinsic mode functions (IMF), and they guarantee a physically meaningful result to HT \citep{Gumelar2019,Zhou2019}. Unlike Fourier transform, which is an analytical method of signal decomposition based on circular functions in the complex plane, EEMD is algorithmic, and the processes undertaken can be summarised as follows.
-
-Produce 150 white noise signals of length equal to the original signal and amplitude equal to 0.2 of the standard deviation of the original signal. Then, add to the set of white noises the original signal -- creating 150 variations of the original signal. Following that, we apply the empirical mode decomposition (EMD) algorithm on each of the 150 signals. The EMD algorithm is summarised below.
-
-\begin{enumerate} \label{enumerate:emd}
-  \item Construct the envelope of the signal by connecting all maxima/minima with cubic splines. \label{enum:envelope}
-  \item Find the local mean of the envelope for the span of the data. \label{enum:localMean}
-  \item Find the difference between the local mean and the original data. \label{enum:difference}
-  \item Repeat steps \ref{enum:envelope} and \ref{enum:localMean} on the difference in \ref{enum:difference} for ten times \citep{Wu2008}.
-\end{enumerate}
-
-The steps above produce a set of intrinsic mode functions or IMFs for each of the 150 variations of the original signal. Then, we average the first IMF component from each of the decomposed original signal variations, to obtain the first EEMD IMF, $C_{1}$, of the original signal. We do the same for the second, third, until the $i^{\text{th}}$ component for each of the 150 original signal variations, thus obtaining $C_{2},C_{3},\dots,C_{i}$.
-
-To compute the phase lag between the characteristic IMFs of the lift coefficient and normalised cylinder displacement, we select the IMF components with the highest correlation to the $\ystr$ signal at that particular $\ured$, to represent the signals, denoted as $\cysys$ for the characteristic normalised cylinder displacement, and $\cclys$ as the characteristic lift coefficient signal. The phase lag, instantaneous frequency and instantaneous amplitude of the signal is subsequently computed by constructing an analytical signal $z \left( t \right)$ from $C_{1},C_{2},\dots,C_{i}$ by computing the Hilbert transform of the IMF, $H_{i}$,
-
-\begin{equation}
-  H_{i} \left( t \right) = \frac{1}{\pi} \text{PV} \int\limits_{}^{\infty} \frac{C_{i} \left( \tau \right)}{t - \tau} d\tau,
-  \label{eq:hilbertTransform}
-\end{equation}
-
-\noindent where PV denotes the Cauchy principal value, and then constructing the analytical signal as follows.
-\begin{equation}
-  z \left( t \right) = C_{i} \left( t \right) + i H_{i} \left( t \right)
-  \label{eq:analiticalSignal}
-\end{equation}
-
-\noindent Note that $i$ in Eq. \ref{eq:analiticalSignal} is the complex number.
-
-We refer the reader interested in the details of EEMD and Hilbert transform, also collectively known as the Hilbert-Huang transform (HHT), to the following excellent texts on the subject \citep{Huang2005,Huang2014}.
-\subsection{The KVIV regime $\left ( \ured \leq \ursi \right )$} \label{ssec:phaseLag}
-At reduced velocities  $\ured = 2.3$ and 4.5, the phase lags  $\phi$ (deg.) between Cl and  $\ured$ are practically zero throughout the whole observation time. The characteristic IMFs of Cl and  $\ystr$ at $\ured = 4.5$ exemplifies this trend, as showcased in Fig. \ref{fig:tempAnalysisKVIV}. Here, Fig. \ref{fig:tempAnalysisKVIV}a shows the temporal evolution of $\cysys$ and $\cclys$, which are the characteristic IMFs of $\ystr$ and Cl, respectively. Figure \ref{fig:tempAnalysisKVIV}b shows the phase lag between $\cysys$ and $\cclys$, and Fig. \ref{fig:tempAnalysisKVIV}c presents the HHT spectrogram of Cl. The HHT spectrogram visualises the instantaneous frequency and amplitude of the IMF components of Cl. The trend that one notices in Fig. \ref{fig:tempAnalysisKVIV}b is similar to what was observed in \citet{Khalak1999}, a study that also employs the Hilbert transform to obtain the instantaneous phase, albeit without EEMD. The dominant IMF component (IMF component sustaining the highest amplitude throughout the whole observation time) of the lift coefficient has a normalised frequency $\fclstr = f_{\text{Cl}}/\fn$ (Fig. \ref{fig:tempAnalysisKVIV}c) centred at approximately $\fclstr = 0.75$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/figure12}
-  \caption{Temporal analysis of the lift coefficient and normalised cylinder displacement signal at $\ured = 4.5$. We show $\cclys$ and $\cclys$ side by side in Fig. \ref{fig:tempAnalysisKVIV}a, present the temporal evolution of the phase lag $\phi$ in Fig. \ref{fig:tempAnalysisKVIV}b and show the temporal evolution of the instantaneous frequency of the lift coefficient signal in Fig. \ref{fig:tempAnalysisKVIV}c.} \label{fig:tempAnalysisKVIV}
-\end{figure}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS1}
+    \caption{Evolution of at $\alpha = \SI{90}{\degree}$.}
+    \label{fig:clRMS1}
+  \end{subfigure}
 
-Once we enter the upper branch of KVIV at  $\ured = 6.8$, $\phi$ jumps to approximately 110 deg. This jump in $\phi$ is characteristic of the transition to the upper branches as also observed by \citet{Maruai2018}, among others. Both $\cclys$ and $\cysys$ signals are visibly very periodic, and the dominant frequency band of Cl, is centred at $\approx 1$, as one can verify in Fig. \ref{fig:tempAnalysisUpper}c.
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS2}
+    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
+    \label{fig:clRMS2}
+  \end{subfigure}
+  \caption{The evolution of the RMS amplitude of lift coefficient,  with respect to reduced velocity $\ured$ in the streamwise vortex-driven regime.} \label{fig:clRMSStreamwise}
+\end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/figure13}
-  \caption{Temporal analysis of the lift coefficient and normalised cylinder displacement signal at $\ured = 6.8$. We show $\cclys$ and $\cysys$ side by side in Fig. \ref{fig:tempAnalysisUpper}a, present the temporal evolution of the phase lag $\phi$ in Fig. \ref{fig:tempAnalysisUpper}b and show the temporal evolution of the instantaneous frequency of the lift coefficient signal in Fig. \ref{fig:tempAnalysisUpper}c.} \label{fig:tempAnalysisUpper}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq5}
+    \caption{Evolution of at $\alpha = \SI{90}{\degree}$.}
+    \label{fig:clFreq5}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq4}
+    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
+    \label{fig:clFreq4}
+  \end{subfigure}
+  \caption{The evolution of the normalised frequency of lift coefficient, $\fclstr$ with respect to reduced velocity $\ured$ in the streamwise vortex-driven regime.} \label{fig:yStrRMSStreamwise}
 \end{figure}
 
-As we increase $\ured$ even further up to $\ured = \ursi$, we see a similar trend for all $\ured = 9.1, 11.4, 13.6$ examined: $\cysys$ and $\cclys$ are both qualitatively very periodic. Their phase lags are very close to $180$ deg., and the dominant Cl frequency bands exhibit a time-averaged value that increases linearly with respect to $\ured$, in a manner that the Strouhal number of Cl is always $\approx 0.16$ on average. We present the representative case of $\ured = \ursi$ in Fig. \ref{fig:tempAnalysisLower}. Note how $\phi$ in this range of $\ured$ varies much less with respect to time, compared to $\phi$ at $\ured = \urth$, and the dominant frequency band of Cl is much narrower compared to the dominant frequency band at $\ured = \urth$, indicating a highly periodic and self-similar oscillation of lift.
+\section{Dual mode suppression regime}\label{sec:suppRegime}
+We then continue our exploration with \SI{45}{\degree}.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/figure14}
-  \caption{Temporal analysis of the lift coefficient and normalised cylinder displacement signal at $\ured = \ursi$. We show $\cclys$ and $\cysys$ side by side in Fig. \ref{fig:tempAnalysisLower}a, present the temporal evolution of the phase lag $\phi$ in Fig. \ref{fig:tempAnalysisLower}b and show the temporal evolution of the instantaneous frequency of the lift coefficient signal in Fig. \ref{fig:tempAnalysisLower}c.} \label{fig:tempAnalysisLower}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS3}
+    \caption{Tilt angle $\alpha = \SI{45}{\degree}$.}
+    \label{fig:yStrRMS3}
+  \end{subfigure}
+  \caption{The amplitude response as the evolution of normalised RMS amplitude of cylinder displacement in the region where Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:yStrRMSSuppressed}
 \end{figure}
-
-\subsection{Transition to SVIV $\left (\urse \leq \ured \leq \urei \right )$} \label{ssec:transSVIV}
-Previously in the $\ured \leq \ursi$ range, we observed that the temporal profile of both Cl and  $\ystr$ are very similar to each other, except that Cl leads $\ystr$ by a certain amount. This similarity in profile supports the assertion that the vibration within $\ured \leq \ursi$ is driven exclusively by the shedding of Karman vortices, which brings the onset of the alternating lift. Analogously, one might expect a similar profile between Cl and $\ystr$ when streamwise vortices drive the vibration. However, this does not seem to be the case.
-
-Once we reach $\ured = 15.9$, we observe that it has become difficult to argue that the profile of $\ystr$ is just a lagged version of the profile of Cl. This is shown in Fig. \ref{fig:tempEvoCompare}a, with the enlarged version in Fig. \ref{fig:tempEvoCompare}b. The profile of Cl looks like the result of several signals in superposition, which one can almost distinguish from the presence of two types of maxima at two different amplitude heights. We put a red dashed line and a red dashed-dot line in Fig. \ref{fig:tempEvoCompare}b as visual cues indicating the two amplitude heights. Decomposing the lift coefficient signal using EEMD reveals partial evidence supporting the compound signal hypothesis.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{figs/figure15}
-  \caption{Temporal evolution of $\ystr$ and Cl at $\ured 15.9$. Figure \ref{fig:tempEvoCompare}b shows an enlarged view of Fig. \ref{fig:tempEvoCompare}a. We can barely spot semblance of two signals with different amplitudes superimposed in the Cl signal in Fig. \ref{fig:tempEvoCompare}b.} \label{fig:tempEvoCompare}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq3}
+    \caption{Tilt angle $\alpha = \SI{45}{\degree}$.}
+    \label{fig:yStrFreq3}
+  \end{subfigure}
+  \caption{The normalised cylinder displacement frequency in the vibration regime where both Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:yStrFreqSuppressed}
 \end{figure}
-
-Once we have decomposed the signal using EEMD, we replot Fig. \ref{fig:tempEvoCompare}a using $\cclys$ and $\cysys$ in Fig. \ref{fig:tempAnalysisTransition}a. One can clearly see that the part of Cl signal responsible for driving the vibration at  $\ured = 15.9$ is embedded in the original Cl signal (Fig. \ref{fig:tempAnalysisTransition}a), and decomposition via EEMD managed to recover this signal, which leads $\cysys$ by approximately 150 deg. on average, throughout the whole observation time (Fig. \ref{fig:tempAnalysisTransition}b). This decline from $\phi \approx 180$ deg. at reduced velocities $\urfo \leq \ured \leq \ursi$, to $\phi \approx 150$ deg. at $\ured = \urse$ is quite sizeable, suggesting a fundamental change in flow dynamics, particularly in terms of vortical structure. Another notable change is the increased temporal variation in $\phi$ from its time-averaged value, in contrast to the evolution of $\phi$ in the range $\urfo \leq \ured \leq \ursi$, which has very little jitter throughout the observation time.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/figure16}
-  \caption{Temporal analysis of the lift coefficient and normalised cylinder displacement signal at $\ured = 15.9$. We show $\cclystr$ and $\cysys$ side by side in Fig. \ref{fig:tempAnalysisTransition}a, present the temporal evolution of the phase lag $\phi$ in Fig. \ref{fig:tempAnalysisTransition}b and show the temporal evolution of the instantaneous frequency of Cl in Fig. \ref{fig:tempAnalysisTransition}c.}
-  \label{fig:tempAnalysisTransition}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS3}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clRMS3}
+  \end{subfigure}
+
+  \caption{The evolution of the RMS amplitude of lift coefficient,  with respect to reduced velocity $\ured$ in the streamwise vortex-driven regime.} \label{fig:clRMSSuppressed}
 \end{figure}
-
-Inspecting the HHT spectrogram in Fig. \ref{fig:tempAnalysisTransition}c reveals two dominant bands in the frequency domain. The first one, marked with a white continuous rectangular box, is the instantaneous frequency for the IMF component of lift shown in Fig. \ref{fig:tempAnalysisTransition}a, and its mean frequency lies close to the natural frequency of the system ($\fclstr \approx 1$). There is; however, a second band of the frequency with nearly similar amplitude around $\fclstr \approx 3.3$, marked with a white dashed rectangular box. Computing the Strouhal number from this frequency returns a value of $\st = 0.20$, which is very close to the Strouhal number for Karman vortices as predicted by Eq. \ref{eq:karmanSheddingFreq} at the Reynolds number equivalent to $\ured = 15.9$, which is $\re = 7.9 \times 10^{3}$. We thus attribute this second band of frequency as being the footprint left by the shedding of Karman vortices, and the first band as the result of streamwise vortex shedding. Through visual inspection of Fig. \ref{fig:tempAnalysisTransition}c, both of these dominant frequency bands are markedly wider and the individual values are more scattered from their time-averaged values than any of their counterparts within $\ured \leq \ursi$.
-
-The knowledge that Karman vortices continue to exist and shed from a cruciform structure during SVIV is not new in the literature. However, this is the first time the lift signal from a cruciform structure undergoing SVIV has been subjected to EEMD, revealing the signature of the two dominant vortical structures regulating the flow around the cruciform. Although the amplitude size of the instantaneous frequency band due to Karman vortex is comparable to the streamwise vortex, the reason why the cylinder resists locking into its frequency is perhaps that its frequency too distant from the natural frequency of the system $\fn$. The shedding frequency of the streamwise vortex is much closer to $\fn$ and is thus preferred by the cylinder.
-
-We consider the transition to SVIV to be complete at $\ured = 18.2$, when the time-averaged phase lag drops further to $\approx 20$ deg. Figure \ref{fig:tempAnalysisStableInitialBranch}a and \ref{fig:tempAnalysisStableInitialBranch}b documents this observation. The instantaneous phase lag is observed to slip through 360 deg. a little past the two second (\SI{2}{\second}) time stamp. By inspecting Fig. \ref{fig:tempAnalysisStableInitialBranch}a, we found that a little past \SI{2}{\second} is when distortions in the periodicity of $\cclys$ occur. The slipping through 360 deg. was also observed by \citet{Khalak1999} in their work on KVIV, highlighting the quasi-periodic nature of the signal being analysed. There, the slip appeared in \citet{Khalak1999} at the initial branch of KVIV. The overall low value of $\phi$ ($\approx 20$ deg. for the whole observation time at $\ured = 18.2$), coupled with the presence of $\phi$ slippage are suggestive of the possibility for $\ured = 18.2$ being the initial branch of SVIV.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.47\textwidth]{figs/figure17}
-  \caption{Temporal analysis of the lift coefficient and normalised cylinder displacement signal at $\ured = 18.2$. We show $\cclys$ and $\cysys$ side by side in Fig. \ref{fig:tempAnalysisStableInitialBranch}a, present the temporal evolution of the phase lag $\phi$ in Fig. \ref{fig:tempAnalysisStableInitialBranch}b and show the temporal evolution of the instantaneous frequency of Cl in Fig. \ref{fig:tempAnalysisStableInitialBranch}c.}
-  \label{fig:tempAnalysisStableInitialBranch}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq3}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clFreq3}
+  \end{subfigure}
+
+  \caption{The evolution of the normalised frequency of lift coefficient, $\fclstr$ with respect to reduced velocity $\ured$ in the region where Karman and streamwise vortex-induced vibrations are most suppressed.} \label{fig:clFreqSuppressed}
 \end{figure}
 
-\subsection{The stable SVIV regime $\left ( \ured \geq \urni \right )$} \label{ssec:svivRegime}
-As $\ured$ is increased to 20.5, we can see a jump in $\phi$ from a mean value of approximately 20 deg. to about 120 deg., shown in Fig. \ref{fig:phaseAngle}a. The phase slippage discussed previously is also observed, indicating the quasi-periodic nature of the lift coefficient signal at this $\ured$. Incidentally, this quasi-periodicity seems to be the norm for the lift signals up to $\ured = 27.3$, as suggested by the phase slippages evident in Figs. \ref{fig:phaseAngle}b, c and d. The slippage only stops once $\ured$ reaches 29.5, suggesting a more periodic behaviour of the lift coefficient compared to its counterparts between $20.5 \leq \ured \leq 27.3$. Although the instantaneous phase between $20.5 \leq \ured \leq 27.3$ implies a quasi-periodic nature, their time-averaged values at each $\ured$ are contained in the narrow region $114 < \phi$ (deg.) $< 135$, as is the value for $\phi$ at $\ured = 29.5$. This observation that the time-averaged value of $\phi$ to only slowly vary with respect to $\ured$, once $\ured$ increases past 20.5, can be interpreted as the dominant flow structures settling into a stable form that becomes more resilient against external excitations. Based on this feature, we classified $20.5 \leq \ured \leq 29.5$ as the upper branch of SVIV.
+\section{Enhanced Karman vortex-induced vibration regime}\label{sec:enhKarmanRegime}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{figs/figure18}
-  \caption{The instantaneous phase lag $\phi$ of $\cclys$ in the range $\urni \leq \ured \leq \urtt$. We can observe $\phi$ slipping through 360 deg. between $\urni \leq \ured \leq \urtv$, before disappearing at $\ured = \urtt$; an indication of improved stability and resilience of the vortical structure driving the vibration.}
-  \label{fig:phaseAngle}
-\end{figure}
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS4}
+    \caption{Tilt angle $\alpha = \SI{22.5}{\degree}$.}
+    \label{fig:yStrRMS4}
+  \end{subfigure}
 
-The data on the evolution of $\phi$ allows us to construct a map of the ``branches'' of vibration modes observed in the range of $\ured$ that we studied. As the branches are mapped against $\ured$, we need a representative value of $\phi$ at each $\ured$. To achieve this, we took the time-averaged values of $\phi$, i.e. $\phim$, and plotted them against $\ured$ in Fig. \ref{fig:phaseAngleRegime}. The region A indicates the initial branch of  KVIV, where  $\phim$ is close to zero. Region B denotes the upper/lower branch of  KVIV, where the system experiences a jump from  $\phim \approx 0$ to greater than 110 deg. The value of $\phim$ settles very close to 180 deg. towards the end of this upper/lower branch.
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS5}
+    \caption{Tilt angle $\alpha = \SI{0}{\degree}$.}
+    \label{fig:yStrRMS5}
+  \end{subfigure}
+  \caption{The amplitude response as the evolution of normalised RMS amplitude of cylinder displacement in the enhanced Karman vortex-driven regime.} \label{fig:yStrFreqKarman}
+\end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.37\textwidth]{figs/figure19}
-  \caption{Vibration regimes identified during analysis of $\phi$. To capture the evolution of $\phi$ with respect to $\ured$, a representative value for $\phi$ at each $\ured$ must be selected. We chose to use the time-averaged $\phi$, $\phim$, as the representative value.}
-  \label{fig:phaseAngleRegime}
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq2}
+    \caption{Tilt angle $\alpha = \SI{22.5}{\degree}$.}
+    \label{fig:yStrFreq2}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.35\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq1}
+    \caption{Tilt angle $\alpha = \SI{0}{\degree}$.}
+    \label{fig:yStrFreq1}
+  \end{subfigure}
+  \caption{The normalised cylinder displacement frequency in the enhanced Karman vortex-driven regime.} \label{fig:yStrFreqKarman}
 \end{figure}
-
-Then, $\phim$ experiences a slight drop from about one-sixth the value of $\phim$ in region B, as we enter region C, marking the start of the transition to the SVIV regime. Following this, the system undergoes a more sudden drop to $\phim \approx 20$ deg. at $\ured = 18.2$. This we designate as region D. Finally, in region E, we observe another jump in $\phim$ from $\phim \approx 20$ deg. in region D to approximately 120 deg. when $\ured \geq \urni$.
-
-\section{Estimation of harnessable power} \label{sec:estimPow}
-\subsection{Mathematical model for power estimation} \label{ssec:mathModel}
-The mathematical model for harnessable power estimation in this study follows that which had been derived in \citet{Raghavanetal2007}. In these works, the authors mentioned that work done by the oscillating cylinder $\wcl$ during one cycle of oscillation $\tosc$ is as follows.
-
-\begin{equation}
-  \wcl = \int_{0}^{\tosc} \left ( \fl \cdot \dot{y} \right ) dt
-  \label{eq:workCylinder}
-\end{equation}
-
-\noindent where both the lift $\fl$ and cylinder velocity $\dot{y}$ are both functions of time. Through several manipulations and simplifying assumptions \citep{Sun2016}, the power captured by the system can be written, using our parameters, as the fluid power
-
-\begin{equation}
-  \pfrms = \frac{1}{2} \rho \pi \cclrms U^{2} \fcyl \yrms D L \sin(\phi),
-  \label{eq:rmsFluidPower}
-\end{equation}
-
-\noindent or the mechanical power
-
-\begin{equation}
-  \pmrms = 8 \pi^{3} \meff \zetatot \left (\yrms \fcyl \right )^{2} \fn.
-  \label{eq:rmsMechPower}
-\end{equation}
-
-Here, $\pfrms$, $\pmrms$, $L$, $\cclrms$, $\zetatot$ and $\meff$ are the \rms{} of fluid power, \rms{} of mechanical power, length of the circular cylinder, characteristic \rms{} of lift amplitude, total damping coefficient, and the system effective mass respectively. We use $\cclys$ to represent $\cclrms$ in Eq. \ref{eq:rmsFluidPower}. We choose to use \rms{} (parameters with subscript RMS) quantities in Eq. \ref{eq:workCylinder} instead of the maximum values like the original authors because that may lead to a misunderstanding that the maximum value is sustained throughout the observation window. This obviously is not always the case in our study, especially once the system transits into the SVIV regime. Recall that the time series analysis of $\ystr\left( t \right)$ and $\text{Cl}\left( t \right)$ in \S\ref{ssec:ampResp} revealed that there is a degree of intermittency in both signals that cannot be overlooked at certain ranges of $\ured$. Using the \rms{} value allows us to partially take this into account in the estimation of harnessable power.
-
-Figure \ref{fig:powerComparison} shows the comparison between power estimated from our experiment and numerical results, with the experimental results of \citet{Nguyen2012} and the direct power measurement of \citet{Koide2013}. Only the value for $\pmrms$ is computed from our experimental results due to the absence of lift data. Our numerical results have both lift and cylinder displacement data, and hence, we calculated both $\pfrms$ and $\pmrms$. We estimated the power from the experimental results of \citet{Nguyen2012} by interpolating missing data points in both their amplitude and frequency responses to compute the value of $\pmrms$ at a given value of $\ured$. The direct power measurement by \citet{Koide2013} was done by connecting the elastic support of the cylinder to a coil. The coil moves with the cylinder, thus creating a relative pistoning motion against a fixed magnet and produces an alternating current.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{figs/figure20}
-  \caption{Estimated \rms{} of mechanical power $\pmrms$, fluid power $\pfrms$, or both, of our experimental and numerical results, compared with results of similar studies in the literature. The fluid power $\pfrms$ is calculated only from the results of our numerical study as the others did not measure lift.}
-  \label{fig:powerComparison}
-\end{figure}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS4}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clRMS4}
+  \end{subfigure}
 
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS5}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clRMS5}
+  \end{subfigure}
+
+  \caption{The evolution of the RMS amplitude of lift coefficient,  with respect to reduced velocity $\ured$ in the Karman vortex-driven regime.} \label{fig:clRMSKarman}
+\end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.47\textwidth]{figs/figure21}
-  \caption{The instantaneous frequency of the lift signal between $\urni \leq \ured \leq \urtt$. The white, solid boxes enclose the IMF component of Cl due to the shedding of the streamwise vortex, while the dashed, white boxes enclose the IMF component due to the shedding of Karman vortex. Through visual inspection, we can see how the degree of dispersion (i.e., height of the box) in the instantaneous frequency of the ``Karman component'' of lift is about twice that of the ``streamwise component'' of lift.}
-  \label{fig:instantLiftFreq}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq2}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clFreq2}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq1}
+    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \label{fig:clFreq1}
+  \end{subfigure}
+
+  \caption{The evolution of the normalised frequency of the lift coefficient,  with respect to reduced velocity $\ured$ in the Karman vortex-driven regime.} \label{fig:clFreqKarman}
 \end{figure}
 
-The estimated power in the KVIV regime $\ured \leq \urse$ produces power only in the order of \si{\micro\watt}, which is relatively insignificant in contrast to the magnitude of power produced in the SVIV regime (mW). In the region $\urei \leq \ured \leq \urte$, $\pmrms$ for our experiment and numerical work exhibits a similar trend where we observed a sudden jump in power output, followed by a gradual decrease. This gradual decrease can be attributed to the increased turbulence level right after the onset of SVIV that imposes a degree of intermittency to the normalised cylinder displacement signal, $\ystr$. For $\pfrms$, however, the quantity exhibits a monotonic increase in the range $\urei \leq \ured \leq \urte$. We only observe a dip in $\pfrms$ at $\ured = \urel$, suggesting an increase in intermittency of $\cclys$ at this $\ured$. In the experimental work of \citet{Nguyen2012}, $\pmrms$ only experiences a monotonic increase in the region $\urei \leq \ured \leq \urte$. This decidedly different response of the system compared to ours most likely stem from the difference in the actual cruciform used by \citet{Nguyen2012}. They used two circular cylinders of diameter \SI{10}{\milli\metre} as their cruciform, whereas we used a circular cylinder - strip plate in both our experiments and numerical work. There are no data from the direct power measurement of \citet{Koide2013} to compare with within $\urei \leq \ured \leq \urte$.
-
-In the range $\urel \leq \ured \leq \urtt$, we find a reasonably good agreement between the trend found in all data compared: they increase monotonically with respect to $\ured$. Although the value of our $\pfrms$ falls quite notably below the value of $\pmrms$ at $\ured = \urel$, other values of $\pfrms$, $\pmrms$ from our numerical results and the direct power measurements by \citet{Koide2013} agree well within $\urtv \leq \ured \leq \urtt$. The only set of power data that consistently falls quite a distance below the others is the $\pmrms$ estimated from the experimental data of \citet{Nguyen2012}, which again, is most probably due to the difference in the actual geometry of the cruciform used in their investigation.
-
-
-\subsection{Possibility for increasing fluid power, $\pfrms$} \label{ssec:possIncrease}
-Recall in Fig. \ref{fig:powerComparison} that although $\pfrms$ is computed according to Eq. \ref{eq:rmsFluidPower}, which uses $\cclrms$ instead of the actual \rms{} amplitude of lift ($\clrms$), the resulting power estimate does not result in a trend that is totally different from the trend found in the other datasets. Furthermore, except for $\pmrms$ estimated from the experimental data of \citet{Nguyen2012}, the values of $\pfrms$ are in fairly good agreement with other data that it is compared against at high $\ured$ ($\ured = \urtv$ and $\urtt$). We see this is an indication that the lift component selected for use in computation of $\pfrms$ is an arguably faithful representation of the force driving the motion of the cylinder. This suggests that the motion of the cylinder, once it enters the SVIV regime, is driven only by one component, and not the totality, of the lift force. This component -- that has a time-averaged frequency close to the natural frequency of the system, $\fn$ -- is the ``streamwise component'' of lift.
-
-Another significant IMF component of the lift force in the SVIV regime is the component whose mean frequency is close to the Karman frequency of vortex shedding, as explained in \S\ref{ssec:transSVIV}. This Karman component of lift has a similar amplitude size as the streamwise component of lift, as evidenced in Fig. \ref{fig:instantLiftFreq}, and as such is also a dominant component of lift. The Karman components are marked with a dashed, white box, and the streamwise components are marked with a solid, white box, following the convention in Figs. \ref{fig:tempAnalysisKVIV}, \ref{fig:tempAnalysisUpper}, \ref{fig:tempAnalysisLower}, \ref{fig:tempAnalysisTransition} and \ref{fig:tempAnalysisStableInitialBranch}. However, the Karman component fails to affect the cylinder vibration like the streamwise component most probably due to the large difference between the mean frequency of the Karman component and the natural frequency of the system, $\fn$.  The streamwise component has a mean frequency close to $\fn$ and is hence able to synchronise with the vibration of the cylinder, producing a sizeable amplitude response.
+\section{Power characteristic in $\alpha$-$\ured$ parameter space}\label{sec:powerCharacteristic}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.43\textwidth]{figs/figure22}
-  \caption{Evolution of the \rms{} amplitude of two dominant lift components due to Karman ($\cflkrms$) and streamwise ($\cflsrms$) vortices with respect to $\ured$. The region $\urei \leq \ured \leq \urte$ exhibits similar magnitude for both the Karman and streamwise components of lift. On the other hand, the magnitude of amplitude for the Karman component while the region $\urel \leq \ured \leq \urtt$ is almost always twice that of the streamwise component.}
-  \label{fig:karmanStreamwiseComponents}
+  \includegraphics[width=0.38\textwidth]{figs/yRMSContour}
+  \caption{Isocontours describing the map of the normalised RMS amplitude of cylinder displacment, $\yrms$ in the strip plate tilt angle - reduced velocity ($\alpha$-$\ured$) parameter space.}
+  \label{fig:yRMSContour}
 \end{figure}
 
-Figure \ref{fig:karmanStreamwiseComponents} shows the \rms{} amplitude of the Karman and streamwise components of lift in the SVIV regime $\ured \geq \urei$. Between $\urei \leq \ured \leq \urte$, the magnitude of the Karman and streamwise components are nearly equal. However, once we exceed $\ured = \urte$, Fig. \ref{fig:karmanStreamwiseComponents} shows that the contribution to the \rms{} amplitude of total lift by the Karman component is on average twice the contribution of the streamwise component. Having such a significant contribution towards the \rms{} amplitude of total lift implies that there is a significant portion of energy from the free stream being used to energise the Karman vortex structure in the flow. Let us assume a hypothetical situation where we can transfer the contribution by the Karman component to the streamwise component of lift. In other words, consider the situation where we can completely redirect the energy from the Karman to the streamwise vortex. Then, the value for $\cclrms$ in Eq. \ref{eq:rmsFluidPower} will increase close to a factor of 2 when $\urei \leq \ured \leq \urte$, and close to a factor of 3 when $\urel \leq \ured \leq \urtt$. This increase in $\cclrms$ will lead to the scaling of $\pfrms$ by the same factor, keeping the other parameters in Eq. \ref{eq:rmsFluidPower} constant. This exercise demonstrates the room for improvement possible for $\pfrms$ in future developments of cruciform energy harvesters. We shall detail in our future work, a method to modulate the dominant vortical structures to achieve such a goal.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.38\textwidth]{figs/powerRMSContour}
+  \caption{Isocontours describing the map of the estimated mechanical power in the strip plate tilt angle - reduced velocity ($\alpha$-$\ured$) parameter space.}
+  \label{fig:powerRMSContou}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.39\textwidth]{figs/efficiencyRMSContour}
+  \caption{Isocontours describing the map of the estimated mechanical power in the strip plate tilt angle - reduced velocity ($\alpha$-$\ured$) parameter space.}
+  \label{fig:efficiencyRMSContour}
+\end{figure}
 
 \section{Conclusions} \label{sec:conclusions}
 In this study, we numerically investigated the temporal evolution of the lift coefficient and cylinder displacement signals of an elastically supported cruciform system in the range $1.1 \times 10^{3} < \re < 14.6 \times 10^{3}$, or $\uron < \ured < \urtt$. Our circular cylinder diameter is \SI{10}{\milli\metre} and the natural frequency of the system is \SI{4.4}{\hertz}. Validation of key numerical results was made experimentally in a custom-built open flow channel, using a cruciform system whose parameters were tuned as close as possible to the quantities used in the numerical study. Decomposing the lift coefficient signal in the SVIV regime ($\urse \leq \ured \leq \urtt$) using EEMD allows us to see that the complexity of the lift coefficient signal as being caused by the superpositioning of two dominant components of lift. One due to the shedding of Karman and the other due to the shedding of streamwise vortices. The former has a frequency close to the vortex shedding frequency of Karman vortex from a smooth, isolated circular cylinder, while the latter has a mean frequency close to $\fn$. Application of the Hilbert-Huang transform on the dominant component of cylinder displacement -- and the component of lift most correlated to it -- allows for the computation of the instantaneous phase lag between lift and cylinder displacement. The time-averaged phase lag revealed five ``branches'' of vibration, among which is the initial branch of SVIV at $\ured = \urei$, which has never been identified before in the literature. We also computed the instantaneous frequency of the lift coefficient, thus revealing the loss of periodicity and self-similarity in the lift coefficient signal as the system enters the SVIV regime. Estimation of power from our results show that the \rms{} mechanical and fluid power computed from our experimental and numerical work agree to varying degrees depending on $\ured$ with data from similar studies in the literature. Finally, we estimated that the \rms{} fluid power can potentially be increased close to a factor of 2 within $\urei \leq \ured \leq \urte$ and close to a factor of 3 when $\urel \leq \ured \leq \urtt$. We base this estimation on the premise of redirecting the contribution to the \rms{} amplitude of total lift from Karman vortex shedding, towards the streamwise component of lift alone.
