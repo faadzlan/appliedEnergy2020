@@ -1,4 +1,4 @@
-%% 
+% License information <<<
 %% Copyright 2019 Elsevier Ltd
 %% 
 %% This file is part of the 'CAS Bundle'.
@@ -18,6 +18,7 @@
 %% double column output.
 
 %\documentclass[a4paper,fleqn,longmktitle]{cas-dc}
+% >>>
 \documentclass[a4paper,fleqn]{cas-sc}
 
 %\usepackage[authoryear,longnamesfirst]{natbib}
@@ -43,8 +44,7 @@
 %\linenumbers
 
 \begin{document}
-
-
+% Author particulars <<<
 \let\WriteBookmarks\relax
 \def\floatpagepagefraction{1}
 \def\textpagefraction{.001}
@@ -100,8 +100,8 @@
 %  between a cuprous oxide slab and a polystyrene micro-sphere placed
 %  on the slab.
 %  }
-
-%The macros for commonly used symbols
+% >>>
+% Macros for commmon symbols <<<
 \newcommand{\ypl}{y^{+}} %yPlus
 \newcommand{\ured}{U^{*}} %reduced velocity
 \newcommand{\yrms}{y^{*}_{\text{RMS}}} %root-mean-square of the normalised cylinder displacement
@@ -171,24 +171,22 @@
 \newcommand{\urel}{25.0}
 \newcommand{\urtv}{27.3}
 \newcommand{\urtt}{29.5}
-
+% >>>
 \begin{abstract}
   We investigated the displacement and lift time series of a circular cylinder - strip plate cruciform system for energy harvesting in the Reynolds number range $1.1 \times 10^{3} \leq \text{Re} \leq 14.6 \times 10^{3}$, numerically using the open source C++ library: OpenFOAM. The Karman vortex-induced vibration (KVIV) regime was identified between reduced velocity, $U^{*}$, $2.3$ and $13.6$, while the streamwise vortex-induced vibration (SVIV) regime was identified between $18.2 \leq U^{*} \leq 29.5$. We analysed the cylinder displacement and lift time series using the Hilbert-Huang transform (HHT). Within this range of $U^{*}$, Karman vortex shedding contributes nearly as much as streamwise vortex shedding to the root-mean-square amplitude of total lift, while between $25.0 \leq U^{*} \leq 29.5$, the Karman component contribution is on average twice that of the streamwise component. These findings hint at the possibility to improve the power output of the harvester by a factor of two between $18.2 \leq U^{*} \leq 22.7$ and by a factor of three between $25.0 \leq U^{*} \leq 29.5$, if we can unite the contribution to the root-mean-square amplitude of the total lift under a single vibration-driving mechanism: the shedding of streamwise vortex.
 \end{abstract}
-
+%%fakesection GraphicalAbstract
 \begin{graphicalabstract}
   \includegraphics[width=0.75\textwidth]{figs/graphicalAbstract}
 \end{graphicalabstract}
 
-% Highlights
-
+%%fakesection Highlights
 \begin{highlights}
 \item Three main energy harvesting regimes were identified, based on the cruciform angle
 \item The streamwise-vortex induced vibration regime produces power in the order of \SI{1}{\milli\watt}
 \item Power output is below \SI{1}{\milli\watt} between angles \SI{67.5}{\degree} and \SI{22.5}{\degree}
 \item Power output can achieve up to \SI{10}{\milli\watt}, as the angle is brought closer to \SI{0}{\degree}.
 \end{highlights}
-
 \begin{keywords}
   Vortex-induced vibration \sep Vibration energy harvester \sep CFD simulation \sep Streamwise vorticity \sep Ensemble empirical mode decomposition (EEMD) \sep Hilbert transform
 \end{keywords}
@@ -211,7 +209,7 @@ They also observed that when the gap ratio $G$, which they denote as  $L/D$  in 
 
 A similar study in the order of magnitude $\re \sim O \left( 10^{2} \right)$ by \citet{Zhao2018a} particularly highlighted the immense utility of CFD as a tool to research SVIV or flow around a cruciform in general. They computed the sectional lift coefficient along the upstream cylinder, and the time history of this sectional lift coefficient revealed two different modes of vortex shedding, namely, parallel and K-shaped. They also paid attention to the local flow patterns that vary along the length of the upstream cylinder such as the trailing vortex flow, necklace vortex flow and flow in the small gap (denoted as SG flow). The discontinuities in the phase angle of the sectional lift coefficient along the upstream cylinder seems to suggest the inadequateness of attributing the lift coefficient to streamwise vortex shedding alone, particularly when Karman vortex streamlines were also observed some distance away from the junction of the cruciform. \citet{Shirakashi1989} also made a similar observation in their experimental work. This leads us to hypothesise that the lift signal is more appropriately viewed as the streamwise-Karman vortex-induced composite lift signal. However, we could not find studies that took this viewpoint and worked out its implication on power generation in their investigation of SVIV.
 
-The objectives of this study are thus threefold: (1) to take a closer look at the amplitude and frequency response of a circular cylinder-strip plate cruciform, especially in reduced velocity ($\ured$) ranges where the transition from KVIV to SVIV occurs, (2) to demonstrate the compositeness of the lift signal of an SVIV system and establish the difference between the lift signal characteristics in the KVIV and SVIV regime and (3) to shed light on how the contribution from the Karman and streamwise components of lift changes as we increase $\ured$ after the onset of SVIV and predict how much improvement in the power generation can be anticipated if we are able to unify the lift amplitude contributions due to Karman and streamwise vortex shedding. Here, $\ured = U/\fn D$, with $U$, $\fn$ and $D$ being the freestream velocity, natural frequency of the system and the diameter of the circular cylinder respectively. The following \S\ref{sec:method} details the methodology we employ to conduct this study. We present and discuss our results in \S\ref{sec:singPlateResp}, \S\ref{sec:tempEvo}, and \S\ref{sec:estimPow}. We describe our conclusions in \S\ref{sec:conclusions}.
+The objectives of this study are thus threefold: (1) to take a closer look at the amplitude and frequency response of a circular cylinder-strip plate cruciform, especially in reduced velocity ($\ured$) ranges where the transition from KVIV to SVIV occurs, (2) to demonstrate the compositeness of the lift signal of an SVIV system and establish the difference between the lift signal characteristics in the KVIV and SVIV regime and (3) to shed light on how the contribution from the Karman and streamwise components of lift changes as we increase $\ured$ after the onset of SVIV and predict how much improvement in the power generation can be anticipated if we are able to unify the lift amplitude contributions due to Karman and streamwise vortex shedding. Here, $\ured = U/\fn D$, with $U$, $\fn$ and $D$ being the freestream velocity, natural frequency of the system and the diameter of the circular cylinder respectively. The following \S\ref{sec:method} details the methodology we employ to conduct this study. We present and discuss our results in. We describe our conclusions in \S\ref{sec:conclusions}.
 
 \begin{figure}
   \centering
@@ -538,22 +536,6 @@ We begin our exploration with the case of \SI{90}{\degree} and \SI{67.5}{\degree
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrRMS1}
-    \caption{Amplitude response at $\alpha = \SI{90}{\degree}$.}
-    \label{fig:yStrRMS1}
-  \end{subfigure}
-
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrRMS2}
-    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
-    \label{fig:yStrRMS2}
-  \end{subfigure}
-  \caption{Evolution of the normalised RMS amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:yStrRMSStreamwise}
-\end{figure}
-
-\begin{figure}
-  \centering
   \begin{subfigure}[h]{0.35\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq5}
     \caption{Tilt angle $\alpha = \SI{90}{\degree}$.}
@@ -566,22 +548,6 @@ We begin our exploration with the case of \SI{90}{\degree} and \SI{67.5}{\degree
     \label{fig:yStrFreq4}
   \end{subfigure}
   \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:yStrFreqStreamwise}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clRMS5}
-    \caption{Evolution of at $\alpha = \SI{90}{\degree}$.}
-    \label{fig:clRMS5}
-  \end{subfigure}
-
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clRMS4}
-    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
-    \label{fig:clRMS4}
-  \end{subfigure}
-  \caption{Evolution of the RMS amplitude of lift coefficient $\clrms$,  with respect to reduced velocity $\ured$, in the streamwise vortex-driven regime.} \label{fig:clRMSStreamwise}
 \end{figure}
 
 \begin{figure}
@@ -601,7 +567,7 @@ We begin our exploration with the case of \SI{90}{\degree} and \SI{67.5}{\degree
 \end{figure}
 
 \section{Dual mode suppression regime}\label{sec:suppRegime}
-We then continue our exploration with \SI{45}{\degree}.
+We then continue our exploration with \SI{45}{\degree}. And some more text.
 
 \begin{figure}
   \centering
@@ -611,16 +577,6 @@ We then continue our exploration with \SI{45}{\degree}.
     \label{fig:yStrRMS3}
   \end{subfigure}
   \caption{Evolution of the normalised RMS amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the region where Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:yStrRMSSuppressed}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrFreq3}
-    \caption{Tilt angle $\alpha = \SI{45}{\degree}$.}
-    \label{fig:yStrFreq3}
-  \end{subfigure}
-  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the region where Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:yStrFreqSuppressed}
 \end{figure}
 
 \begin{figure}
@@ -650,22 +606,6 @@ We then continue our exploration with \SI{45}{\degree}.
 \begin{figure}
   \centering
   \begin{subfigure}[h]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrRMS4}
-    \caption{Tilt angle $\alpha = \SI{22.5}{\degree}$.}
-    \label{fig:yStrRMS4}
-  \end{subfigure}
-
-  \begin{subfigure}[h]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrRMS5}
-    \caption{Tilt angle $\alpha = \SI{0}{\degree}$.}
-    \label{fig:yStrRMS5}
-  \end{subfigure}
-  \caption{Evolution of the normalised RMS amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the Karman vortex-driven regime.} \label{fig:yStrFreqKarman}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.35\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq2}
     \caption{Tilt angle $\alpha = \SI{22.5}{\degree}$.}
     \label{fig:yStrFreq2}
@@ -677,23 +617,6 @@ We then continue our exploration with \SI{45}{\degree}.
     \label{fig:yStrFreq1}
   \end{subfigure}
   \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the Karman vortex-driven vibration regime.} \label{fig:yStrFreqKarman}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clRMS4}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
-    \label{fig:clRMS4}
-  \end{subfigure}
-
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clRMS5}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
-    \label{fig:clRMS5}
-  \end{subfigure}
-
-  \caption{Evolution of the RMS amplitude of lift coefficient $\clrms$,  with respect to reduced velocity $\ured$, in the Karman vortex-driven vibration regime.} \label{fig:clRMSKarman}
 \end{figure}
 
 \begin{figure}
