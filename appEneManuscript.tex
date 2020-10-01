@@ -144,19 +144,19 @@
 \newcommand{\fre}{f_{\text{RE}}} %Richardson extrapolation of quantity of interest, used in GCI study
 
 %The macros for freestream velocities
-\newcommand{\uon}{\unit{0.1}{\metre\per\second}}
-\newcommand{\utw}{\unit{0.2}{\metre\per\second}}
-\newcommand{\uth}{\unit{0.3}{\metre\per\second}}
-\newcommand{\ufo}{\unit{0.4}{\metre\per\second}}
-\newcommand{\ufi}{\unit{0.5}{\metre\per\second}}
-\newcommand{\usi}{\unit{0.6}{\metre\per\second}}
-\newcommand{\use}{\unit{0.7}{\metre\per\second}}
-\newcommand{\uei}{\unit{0.8}{\metre\per\second}}
-\newcommand{\uni}{\unit{0.9}{\metre\per\second}}
-\newcommand{\ute}{\unit{1.0}{\metre\per\second}}
-\newcommand{\uel}{\unit{1.1}{\metre\per\second}}
-\newcommand{\utv}{\unit{1.2}{\metre\per\second}}
-\newcommand{\utt}{\unit{1.3}{\metre\per\second}}
+\newcommand{\uon}{\SI[per-mode=symbol]{0.1}{\metre\per\second}}
+\newcommand{\utw}{\SI[per-mode=symbol]{0.2}{\metre\per\second}}
+\newcommand{\uth}{\SI[per-mode=symbol]{0.3}{\metre\per\second}}
+\newcommand{\ufo}{\SI[per-mode=symbol]{0.4}{\metre\per\second}}
+\newcommand{\ufi}{\SI[per-mode=symbol]{0.5}{\metre\per\second}}
+\newcommand{\usi}{\SI[per-mode=symbol]{0.6}{\metre\per\second}}
+\newcommand{\use}{\SI[per-mode=symbol]{0.7}{\metre\per\second}}
+\newcommand{\uei}{\SI[per-mode=symbol]{0.8}{\metre\per\second}}
+\newcommand{\uni}{\SI[per-mode=symbol]{0.9}{\metre\per\second}}
+\newcommand{\ute}{\SI[per-mode=symbol]{1.0}{\metre\per\second}}
+\newcommand{\uel}{\SI[per-mode=symbol]{1.1}{\metre\per\second}}
+\newcommand{\utv}{\SI[per-mode=symbol]{1.2}{\metre\per\second}}
+\newcommand{\utt}{\SI[per-mode=symbol]{1.3}{\metre\per\second}}
 
 \newcommand{\uron}{2.3}
 \newcommand{\urtw}{4.5}
@@ -396,7 +396,7 @@ System natural frequency, $f_{n}$ (Hz)     & $4.42$        & $4.4$ to $4.79$  \\
 \end{tabular*}
 \end{table}
 
-A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:keyDimensions}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump.
+A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:keyDimensions}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump. The finished product gave an operability range between \uth{} and \uel{}, which translates to a $\urth \leq \ured \leq \urel$ for an elastically supported circular cylinder system of diameter \SI{10}{\milli\metre}. The turbulence level ranges between $5\%$ to $8\%$ when the freestream velocity $U_{\infty} \geq \uei$.
 
 \begin{figure}
   \centering
@@ -417,11 +417,6 @@ For the benchmarking, we chose the reduced velocity $\ured = \urte$, as the cyli
 \end{figure}
 
 \section{Numerical setup validation} \label{sec:numSetup}
-\subsection{Simple grid independency study} \label{ssec:simpGCI}
-Numerical solutions of actual, continuous physical phenomena contain errors, or uncertainties, due to temporal and spatial discretisation. Reliance on the numerical method of investigation puts the responsibility on the user to minimise and justify the magnitude of error introduced in the solution.
-
-While CFD users usually point towards their low Courant-Friedrichs-Lewy number to substantiate their claim of temporal convergence for their numerical solutions, researchers demonstrate the spatial convergence of their solution through either one of these methods. First, by solving the governing equations on several grids, each grid being a finer version of the previous one and showing that the quantities of interest are approximately the constant on all grids tested. One then chooses the mesh with a medium resolution to use in the subsequent data collection \citep{Wu2011,Ding2013,Ding2015a,Ding2019}.
-
 \subsection{Grid independency study via Richardson extrapolation and grid convergence index} \label{ssec:richExtrap}
 Like the first, the second method solves the governing equations on successively finer grids. However, instead of arguing that one obtains similar results on all the grids, the investigator checks whether the quantities of interest tend towards value, as one solves the governing equation on successively finer grid resolutions \citep{Richardson1927,Stern2001}. This method, of checking for convergence pays attention not only on the presumed converged value but also on the trend of convergence. Literature that employ this method impose a monotonic convergence condition \citep{Stern2001,MatAli2011,Ali2012,Maruai2018} on their quantities of interest, adding an extra layer of confidence in the final form of their spatial discretisation.
 
@@ -549,23 +544,34 @@ The pure cruciform case, i.e. \SI{90}{\degree}, demonstrated a normalised \rms{}
   \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:fig:yStrRMSStreamwise}
 \end{figure}
 
-Then at $\ured = \urse$, $\yrms$ experiences a very weak increase followed by a sudden jump close to $0.4$ at $\ured = \urei$. This is followed by a slight decline at $\ured = \urni$ and return to the previous level of $\yrms$ at $\ured = \urte$. Past $\ured = \urte$, we observe that $\yrms$ maintains a linear trend in its variation with respect to $\ured$.
+Then at $\ured = \urse$, $\yrms$ experiences a very weak increase followed by a sudden jump close to $0.4$ at $\ured = \urei$. This is followed by a slight decline at $\ured = \urni$ and return to the previous level of $\yrms$ at $\ured = \urte$. Past $\ured = \urte$, we observe that $\yrms$ maintains a linear trend in its variation with respect to $\ured$. As $\ured = \urei$ is well within the lower branch for a system in KVIV, it is quite unlikely for the vibration within $\urei \leq \ured \leq \urtt$ to be the governed by the shedding of Karman vortices, leading previous investigators to attribute the vibration to the periodic shedding of streamwise vortical structures dominating the spatial region close to the cruciform juncture \citep{Shirakashi1989,Hemsuwan2018b,Hemsuwan2018d}. Hence, we name this range of $\ured$ the streamwise vortex-induced vibration regime.
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrFreq5}
-    \caption{Tilt angle $\alpha = \SI{90}{\degree}$.}
-    \label{fig:yStrFreq5}
-  \end{subfigure}
-
-  \begin{subfigure}[h]{0.35\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrFreq4}
-    \caption{Tilt angle $\alpha = \SI{67.5}{\degree}$.}
-    \label{fig:yStrFreq4}
-  \end{subfigure}
-  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:yStrFreqStreamwise}
+  \includegraphics[width=0.4\textwidth]{figs/expCompareAmp}
+  \caption{Comparison between the evolution of $\yrms$ with respect to $\ured$of a pure cruciform system from our numerical and experimental work. The filled square represents the numerical, while the filled circle represents the experimental results.}
+  \label{fig:expCompareAmp}
 \end{figure}
+
+The experimental system consisting of the closed loop open flow channel and the pure cruciform oscillator rig in \S\ref{ssec:openFlowExp} is constructed not only for the purpose of validating the results of our pure cruciform numerical investigation, but also to corroborate in general, the sum total of our numerical setup. Admittedly, the best undertaking would be to perform equivalent experiment for each of the \SI{90}{\degree}, \SI{67.5}{\degree}, \SI{45}{\degree}, \SI{22.5}{\degree} and \SI{0}{\degree} configurations, but the scale of such an exercise and subsequent discussion of the results in our opinion, deserves its own treatment separate from the current study. The degree of agreement between the results of our numerical and experimental investigation of the pure cruciform establishes the validity of our numerical setup, which we assume to extend to the rest of the cruciforms. We think that this assumption is somewhat founded because all cruciforms are simulated under similar boundary conditions, mesh resolution and solver algorithm.
+
+Our experiments collect time series data of cylinder displacement $y$, from which normalised \rms{} amplitude $\yrms$, and normalised cylinder vibration frequency $\fstr$, are computed. Figure \ref{fig:expCompareAmp} compares both our numerical and experimental results of $\yrms$. We observe that both results agree in terms of magnitude and trend of the amplitude response. However, the jump to SVIV occurs at a higher $\ured \approx 19$, translating to a delay of about 3 units of $\ured$. Our numerical and experimental results are also able to capture the slight dip in $\yrms$ following the jump to SVIV, but the occurrence in our experiment is also delayed by about 3 units of $\ured$. This delay can perhaps be attributed to the fact that the raw $y$ time series were measured in succession from the lowest attainable channel flow velocity \uth{} to its highest \uel{} within one experimental run. In contrast, our simulations always start with the cylinder at rest at its neutral position at $t_{0} = \SI{0}{\second}$, with the freestream exactly at set at the desired value $\uon, \utw, \dots, \utt$. Thus, the delays found in our experimental results may simply be the consequence of ``flow memory'', a concept whose analogy can be found in undergraduate experiments to determine the critical Reynolds number transitioning from laminar to turbulent flow in smooth circular pipes. The ``flow memory'' is of course the manifestation of flow inertia due to fluid viscosity, where the flow has a natural tendency to retain its previous state before being overpowered by the flow momentum. This results in the delay found at the jump to SVIV and the local $\yrms$ minimum after the jump.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.38\textwidth]{figs/yStrFreq5}
+  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, for the pure cruciform case.}
+  \label{fig:yStrFreq5}
+\end{figure}
+
+We show the evolution of the normalised cylinder vibration frequency $\fstr$ with respect to $\ured$ in Fig. \ref{fig:yStrFreq5}. Inspecting Fig. \ref{fig:yStrFreq5}, we immediately notice two distinct evolutionary pattern for $\fstr$with a sharp boundary at $\ured = \ursi$. Between $\uron \leq \ured \leq \ursi$, the $\fstr$ trend follows closely the shedding frequency of Karman vortices from an isolated, fixed circular cylinder \citep{Blevins1990}. The Karman vortex shedding frequency is given as an empirical equation in Eq. \ref{eq:karmanSheddingFreq}.
+
+\begin{equation}
+  f_{v} = 0.198 \left( 1 - \frac{19.7}{\re} \right) DU
+  \label{eq:karmanSheddingFreq}
+\end{equation}
+
+\noindent Here, $f_{v}$, $D$ and $U$ are the vortex shedding frequency, diameter of the isolated circular cylinder and $U$ the freestream velocity respectively. We can easily see how $f_{v}$ is a linear function of $U$, and this is what gives rise to the linear pattern of $\fstr$ within $\uron \leq \ured \leq \ursi$.
 
 \begin{figure}
   \centering
