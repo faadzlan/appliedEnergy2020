@@ -126,10 +126,18 @@
 \newcommand{\cysys}{C_{\ystr,\ystr}} %the characteristic IMF representing the normalised cylinder displacement
 \newcommand{\cclys}{C_{\text{Cl},\ystr}} %the characteristic IMF representing the lift coefficient
 \newcommand{\afl}{\alpha_{F_{L}}} %ratio between two dominant IMF components of the lift
+
+\newcommand{\angfi}{\SI{90}{\degree}} %90 deg. angle
+\newcommand{\angfo}{\SI{67.5}{\degree}} %67.5 deg. angle
+\newcommand{\angth}{\SI{45}{\degree}} %45 deg. angle
+\newcommand{\angtw}{\SI{22.5}{\degree}} %22.5 deg. angle
+\newcommand{\angon}{\SI{0}{\degree}} %0 deg. angle
+
 \newcommand{\pfrms}{P_{\text{Fluid,RMS}}} %estimated root-mean-square of fluid power
 \newcommand{\pmrms}{P_{\text{Mech.,RMS}}} %estimated root-mean-square of mechanical power
 \newcommand{\re}{\text{Re}} %Reynolds number
 \newcommand{\st}{\text{St}} %Strouhal number
+\newcommand{\plag}{\theta_{y-\text{Cl}}} %Characteristic phase lag
 \newcommand{\phim}{\phi_{\text{mean}}} %mean phase lag
 \newcommand{\wcl}{W_{\text{cyl.}}} %mean work done by cylinder over one cycle of vibration
 \newcommand{\tosc}{T_{\text{osc.}}} %mean period of cylinder oscillation
@@ -184,8 +192,8 @@
 \begin{highlights}
 \item Three main energy harvesting regimes were identified, based on the cruciform angle
 \item The streamwise-vortex induced vibration regime produces power in the order of \SI{1}{\milli\watt}
-\item Power output is below \SI{1}{\milli\watt} between angles \SI{67.5}{\degree} and \SI{22.5}{\degree}
-\item Power output can achieve up to \SI{10}{\milli\watt}, as the angle is brought closer to \SI{0}{\degree}.
+\item Power output is below \SI{1}{\milli\watt} between angles \angfo{} and \angtw{}
+\item Power output can achieve up to \SI{10}{\milli\watt}, as the angle is brought closer to \angon{}.
 \end{highlights}
 \begin{keywords}
   Vortex-induced vibration \sep Vibration energy harvester \sep CFD simulation \sep Streamwise vorticity \sep Ensemble empirical mode decomposition (EEMD) \sep Hilbert transform
@@ -249,39 +257,39 @@ In Fig. \ref{fig:probGeoTop}, the circular cylinder extends from $z/D=7.5$ to $z
   \centering
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/cruciform90}
-    \caption{Cruciform layout for \SI{90}{\degree}}
+    \caption{Cruciform layout for \angfi{}}
     \label{fig:cruciform90}
   \end{subfigure}
   \hfill
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/cruciform675}
-    \caption{Cruciform layout for \SI{67.5}{\degree}}
+    \caption{Cruciform layout for \angfo{}}
     \label{fig:cruciform675}
   \end{subfigure}
   \hfill
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/cruciform45}
-    \caption{Cruciform layout for \SI{45}{\degree}}
+    \caption{Cruciform layout for \angth{}}
     \label{fig:cruciform45}
   \end{subfigure}
 
   \raggedright
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/cruciform225}
-    \caption{Cruciform layout for \SI{22.5}{\degree}}
+    \caption{Cruciform layout for \angtw{}}
     \label{fig:cruciform22.5}
   \end{subfigure}
   \hspace{6mm}
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/cruciform00}
-    \caption{Cruciform layout for \SI{0}{\degree}}
+    \caption{Cruciform layout for \angon{}}
     \label{fig:cruciform00}
   \end{subfigure}
 
-  \caption{Variation of cruciforms studied in this work. We vary the cruciform angle from the case of a pure cruciform (\SI{90}{\degree}) to the case of cylinder - plate in tandem (\SI{0}{\degree}), in increments of \SI{22.5}{\degree}.}\label{fig:cruciformLayouts}
+  \caption{Variation of cruciforms studied in this work. We vary the cruciform angle from the case of a pure cruciform (\angfi{}) to the case of cylinder - plate in tandem (\angon{}), in increments of \angtw{}.}\label{fig:cruciformLayouts}
 \end{figure}
 
-We then produce variants of the pure cruciform configuration by rotating the strip plate from \SI{90}{\degree} to \SI{0}{\degree} in \SI{22.5}{\degree} increments. In total, we constructed five different cruciforms shown in Fig. \ref{fig:cruciformLayouts}. The dimensions of the computational domain remain fixed for all cruciforms, including the gap between the cylinder and the strip plate.
+We then produce variants of the pure cruciform configuration by rotating the strip plate from \angfi{} to \angon{} in \angtw{} increments. In total, we constructed five different cruciforms shown in Fig. \ref{fig:cruciformLayouts}. The dimensions of the computational domain remain fixed for all cruciforms, including the gap between the cylinder and the strip plate.
 
 \subsection{Numerical method} \label{ssec:numMeth}
 Our numerical study utilises OpenFOAM, an open-source computational fluid dynamics (CFD) platform written in C++. With OpenFOAM, we solved the 3D unsteady Reynolds averaged Navier-Stokes (3D URANS) equations that are the following.
@@ -357,7 +365,7 @@ For most numerical studies of FSI, the mesh warp diffusion method governed by Eq
 
 As part of the validation process for our numerical setup, we constructed a closed loop open flow channel, with a test section \SI{100}{\milli\metre} wide, \SI{200}{\milli\metre} high and \SI{1500}{\milli\metre} long. The design of this open flow channel is heavily inspired by the water tunnel of \citet{Nguyen2012} and \citet{Koide2013}. Considering the application of this research in the far future is in open flows such as natural drainage systems or the ocean - and not within pipes - prompts us to make this distinction.
 
-We benchmark the open flow channel by setting up a pure cruciform oscillator (\SI{90}{\degree}) experiment, whose data from similar studies are readily available in published works. Following this, we dimensioned the rig to follow the parameters used in \citet{Koide2013}. A summary of our parameters and those used in \citet{Koide2013} are provided in Table \ref{tab:expParameter}. We tune the parameters governing the amplitude/frequency response of the oscillator using simple length-based mechanism as follows (see Fig. \ref{fig:rigSketch}). To tune the spring coefficient $k$, we simply adjust the active length of the twin spring plate. In practice, we obtained the calibration curve of the twin spring plate by performing a weight - displacement measurement \citep{Sun2016} at several active lengths of the plate. Once the spring coefficient versus spring plate active length calibration curve is obtained, we can just adjust the length of the spring plate to achieve the desired value of $k$.
+We benchmark the open flow channel by setting up a pure cruciform oscillator (\angfi{}) experiment, whose data from similar studies are readily available in published works. Following this, we dimensioned the rig to follow the parameters used in \citet{Koide2013}. A summary of our parameters and those used in \citet{Koide2013} are provided in Table \ref{tab:expParameter}. We tune the parameters governing the amplitude/frequency response of the oscillator using simple length-based mechanism as follows (see Fig. \ref{fig:rigSketch}). To tune the spring coefficient $k$, we simply adjust the active length of the twin spring plate. In practice, we obtained the calibration curve of the twin spring plate by performing a weight - displacement measurement \citep{Sun2016} at several active lengths of the plate. Once the spring coefficient versus spring plate active length calibration curve is obtained, we can just adjust the length of the spring plate to achieve the desired value of $k$.
 
 \begin{figure}
   \centering
@@ -396,7 +404,7 @@ System natural frequency, $f_{n}$ (Hz)     & $4.42$        & $4.4$ to $4.79$  \\
 \end{tabular*}
 \end{table}
 
-A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:keyDimensions}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump. The finished product gave an operability range between \uth{} and \uel{}, which translates to a $\urth \leq \ured \leq \urel$ for an elastically supported circular cylinder system of diameter \SI{10}{\milli\metre}. The turbulence level ranges between $5\%$ to $8\%$ when the freestream velocity $U_{\infty} \geq \uei$.
+A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:keyDimensions}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump. The finished product gave an operability range between \uth{} and \uel{}, which translates to $\urth \leq \ured \leq \urel$ for an circular cylinder of diameter \SI{10}{\milli\metre}. The turbulence level ranges between $5\%$ to $8\%$ when the freestream velocity $U_{\infty} \geq \uei$.
 
 \begin{figure}
   \centering
@@ -535,13 +543,16 @@ We provide visual representations of the convergent $\clrms$, $\yrms$ and $\fstr
   \caption{The convergence diagram for $\clrms$. Figure \ref{fig:clrmsGCI}a shows how $\clrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:clrmsGCI}b shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:clrmsGCI}
 \end{figure}
 
-\section{Streamwise vortex-driven vibration regime}\label{sec:svivRegime}
-The pure cruciform case, i.e. \SI{90}{\degree}, demonstrated a normalised \rms{} amplitude of cylinder displacement, $\yrms$ that starts quite expectedly with a low amplitude at reduced velocities $\uron$ and $\urtw$ , before reaching a value close to $\yrms = 0.1$ at $\ured = \urth$, as presented in Fig. \ref{fig:yStrRMSStreamwise}. Following the local maximum at $\ured = \urth$, $\yrms$ tapers off to less than $\yrms = 0.05$ between $\urfo \leq \yrms \leq \ursi$. This whole $\yrms$ trend of hitting a local maximum before tapering off bears a striking resemblance to the amplitude response of an isolated circular cylinder in KVIV at mass ratios of order $O(10^{1})$ \citep{Feng1963,Khalak1999}. This resemblance can be seen as an indication that the vibration of a pure cruciform between $\ured \leq \urse$ is driven primarily through the shedding cycle of Karman vortices.
+\section{Streamwise vortex-driven vibration}\label{sec:svivRegime}
+
+\subsection{The amplitude and frequency response}\label{ssec:svivRegimeAmpFreqResp}
+
+The pure cruciform case, i.e. \angfi{}, demonstrated a normalised \rms{} amplitude of cylinder displacement, $\yrms$ that starts quite expectedly with a low amplitude at reduced velocities $\uron$ and $\urtw$ , before reaching a value close to $\yrms = 0.1$ at $\ured = \urth$, as presented in Fig. \ref{fig:yStrRMS1}. Following the local maximum at $\ured = \urth$, $\yrms$ tapers off to less than $\yrms = 0.05$ between $\urfo \leq \yrms \leq \ursi$. This whole $\yrms$ trend of hitting a local maximum before tapering off bears a striking resemblance to the amplitude response of an isolated circular cylinder in KVIV at mass ratios of order $O(10^{1})$ \citep{Feng1963,Khalak1999}. This resemblance can be seen as an indication that the vibration of a pure cruciform between $\ured \leq \urse$ is driven primarily through the shedding cycle of Karman vortices.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.38\textwidth]{figs/yStrRMS1}
-  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:fig:yStrRMSStreamwise}
+  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the streamwise vortex-driven vibration regime.} \label{fig:yStrRMS1}
 \end{figure}
 
 Then at $\ured = \urse$, $\yrms$ experiences a very weak increase followed by a sudden jump close to $0.4$ at $\ured = \urei$. This is followed by a slight decline at $\ured = \urni$ and return to the previous level of $\yrms$ at $\ured = \urte$. Past $\ured = \urte$, we observe that $\yrms$ maintains a linear trend in its variation with respect to $\ured$. As $\ured = \urei$ is well within the lower branch for a system in KVIV, it is quite unlikely for the vibration within $\urei \leq \ured \leq \urtt$ to be the governed by the shedding of Karman vortices, leading previous investigators to attribute the vibration to the periodic shedding of streamwise vortical structures dominating the spatial region close to the cruciform juncture \citep{Shirakashi1989,Hemsuwan2018b,Hemsuwan2018d}. Hence, we name this range of $\ured$ the streamwise vortex-induced vibration regime.
@@ -553,9 +564,9 @@ Then at $\ured = \urse$, $\yrms$ experiences a very weak increase followed by a 
   \label{fig:expCompareAmp}
 \end{figure}
 
-The experimental system consisting of the closed loop open flow channel and the pure cruciform oscillator rig in \S\ref{ssec:openFlowExp} is constructed not only for the purpose of validating the results of our pure cruciform numerical investigation, but also to corroborate in general, the sum total of our numerical setup. Admittedly, the best undertaking would be to perform equivalent experiment for each of the \SI{90}{\degree}, \SI{67.5}{\degree}, \SI{45}{\degree}, \SI{22.5}{\degree} and \SI{0}{\degree} configurations, but the scale of such an exercise and subsequent discussion of the results in our opinion, deserves its own treatment separate from the current study. The degree of agreement between the results of our numerical and experimental investigation of the pure cruciform establishes the validity of our numerical setup, which we assume to extend to the rest of the cruciforms. We think that this assumption is somewhat founded because all cruciforms are simulated under similar boundary conditions, mesh resolution and solver algorithm.
+The experimental system consisting of the closed loop open flow channel and the pure cruciform oscillator rig in \S\ref{ssec:openFlowExp} is constructed not only for the purpose of validating the results of our pure cruciform numerical investigation, but also to corroborate in general, the sum total of our numerical setup. Admittedly, the best undertaking would be to perform equivalent experiment for each of the \angfi{}, \angfo{}, \angth{}, \angtw{} and \angon{} configurations, but the scale of such an exercise and subsequent discussion of the results in our opinion, deserves its own treatment separate from the current study. The degree of agreement between the results of our numerical and experimental investigation of the pure cruciform establishes the validity of our numerical setup, which we assume to extend to the rest of the cruciforms. We think that this assumption is somewhat founded because all cruciforms are simulated under similar boundary conditions, mesh resolution and solver algorithm.
 
-Our experiments collect time series data of cylinder displacement $y$, from which normalised \rms{} amplitude $\yrms$, and normalised cylinder vibration frequency $\fstr$, are computed. Figure \ref{fig:expCompareAmp} compares both our numerical and experimental results of $\yrms$. We observe that both results agree in terms of magnitude and trend of the amplitude response. However, the jump to SVIV occurs at a higher $\ured \approx 19$, translating to a delay of about 3 units of $\ured$. Our numerical and experimental results are also able to capture the slight dip in $\yrms$ following the jump to SVIV, but the occurrence in our experiment is also delayed by about 3 units of $\ured$. This delay can perhaps be attributed to the fact that the raw $y$ time series were measured in succession from the lowest attainable channel flow velocity \uth{} to its highest \uel{} within one experimental run. In contrast, our simulations always start with the cylinder at rest at its neutral position at $t_{0} = \SI{0}{\second}$, with the freestream exactly at set at the desired value $\uon, \utw, \dots, \utt$. Thus, the delays found in our experimental results may simply be the consequence of ``flow memory'', a concept whose analogy can be found in undergraduate experiments to determine the critical Reynolds number transitioning from laminar to turbulent flow in smooth circular pipes. The ``flow memory'' is of course the manifestation of flow inertia due to fluid viscosity, where the flow has a natural tendency to retain its previous state before being overpowered by the flow momentum. This results in the delay found at the jump to SVIV and the local $\yrms$ minimum after the jump.
+Our experiments collect time series data of cylinder displacement $y$, from which the normalised \rms{} amplitude $\yrms$ is computed. Figure \ref{fig:expCompareAmp} compares both our numerical and experimental results of $\yrms$. We observe that both results agree in terms of magnitude and trend of the amplitude response. However, the jump to SVIV occurs at a higher $\ured \approx 19$, translating to a delay of about 3 units of $\ured$. Our numerical and experimental results are also able to capture the slight dip in $\yrms$ following the jump to SVIV, but the occurrence in our experiment is also delayed by about 3 units of $\ured$. This delay can perhaps be attributed to the fact that the raw $y$ time series were measured in succession from the lowest attainable channel flow velocity \uth{} to its highest \uel{} within one experimental run. In contrast, our simulations always start with the cylinder at rest at its neutral position at $t_{0} = \SI{0}{\second}$, with the freestream exactly at set at the desired value $\uon, \utw, \dots, \utt$. Thus, the delays found in our experimental results may simply be the consequence of ``flow memory'', a concept whose analogy can be found in undergraduate experiments to determine the critical Reynolds number transitioning from laminar to turbulent flow in smooth circular pipes. The ``flow memory'' is in our opinion none other than the manifestation of flow inertia due to fluid viscosity, where the flow has a natural tendency to retain its previous state before being overpowered by the flow momentum. This results in the delay found at the jump to SVIV and the local $\yrms$ minimum after the jump.
 
 \begin{figure}
   \centering
@@ -571,72 +582,168 @@ We show the evolution of the normalised cylinder vibration frequency $\fstr$ wit
   \label{eq:karmanSheddingFreq}
 \end{equation}
 
-\noindent Here, $f_{v}$, $D$ and $U$ are the vortex shedding frequency, diameter of the isolated circular cylinder and $U$ the freestream velocity respectively. We can easily see how $f_{v}$ is a linear function of $U$, and this is what gives rise to the linear pattern of $\fstr$ within $\uron \leq \ured \leq \ursi$.
+\noindent Here, $f_{v}$, $D$ and $U$ are the vortex shedding frequency, diameter of the isolated circular cylinder and $U$ the freestream velocity respectively. We can easily see how $f_{v}$ is a linear function of $U$, and this is what gives rise to the linear pattern of $\fstr$ within $\uron \leq \ured \leq \ursi$. Then, within $\urse \leq \ured \leq \urtt$, $\fstr$ drops close to 1, indicating synchronisation between lift and cylinder vibration. We think this synchronisation is what gives rise to the bigger $\ystr$, compared to $\uron \leq \ured \leq \ursi$.
+
+Inspecting the evolution of \rms{} amplitude of lift coefficient $\clrms$ and the normalised lift coefficient frequency $\fclstr$ with respect to $\ured$ in Fig. \ref{fig:cl90}, provided more evidence supporting the assertion that $\ured = \urse$ is a boudary berween two vibration-driving mechanisms. In fact, the observation at $\urse$ in Fig. \ref{fig:clRMS5} indicates that the SVIV regime is still in its infancy, due to the dip in $\clrms$ at that $\ured$, compared to $\ured = \ursi$. In Fig. \ref{fig:clFreq5}, we also draw a dashed line illustrating $f^{*}_{v} = f_{v}/D$, where $f_{v}$ is the shedding frequency of Karman vortices from a smooth isolated circular cylinder described in Eq. \ref{eq:karmanSheddingFreq}.
+
+The trend found in $\fclstr$ vs. $\ured$ is very similar to that found in Fig. \ref{fig:yStrFreq5}. We interpret this similarity as an indication of the symmetry of lift produced along the cylinder. Our reasoning stems from the findings of \citet{Zhao2018a}, who revealed how lift is distributed along the upstream cylinder of a two-cylinder \angfi{} cruciform. They did this by computing sectional lift coefficients along the upstream cylinder. This system produces a symmetric distribution of sectional lift coefficient, with $Z = 0$ being the plane of symmetry. An asymmetrical distribution of the sectional lift coefficient may produce a trend in $\yrms$ and $\fstr$ that is dissimilar to those found in $\clrms$ and $\fclstr$, due to the irregular moment acting on the cylinder.
 
 \begin{figure}
   \centering
   \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS5}
+    \caption{Evolution of $\clrms$ with respect to $\ured$.}
+    \label{fig:clRMS5}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/clFreq5}
-    \caption{Evolution of at $\alpha = \SI{90}{\degree}$.}
+    \caption{Evolution of $\fclstr$ with respect to $\ured$}
     \label{fig:clFreq5}
   \end{subfigure}
 
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clFreq4}
-    \caption{Amplitude response at $\alpha = \SI{67.5}{\degree}$.}
-    \label{fig:clFreq4}
-  \end{subfigure}
-  \caption{Evolution of the normalised frequency of lift coefficient, $\fclstr$ with respect to reduced velocity $\ured$ in the streamwise vortex-driven regime.} \label{fig:yStrRMSStreamwise}
+  \caption{Evolution of the lift coefficient \rms{} amplitude ($\clrms$) and normalised frequency of lift coefficient ($\fclstr$), with respect to reduced velocity $\ured$, for the pure cruciform case. The dashed line in Fig. \ref{fig:clFreq5} visualises the shedding frequency of Karman vortex computed from Eq. \ref{eq:karmanSheddingFreq}.} \label{fig:cl90}
 \end{figure}
 
-\section{Transition to Karman vortex-driven vibration regime}\label{sec:suppRegime}
-We then continue our exploration with \SI{45}{\degree}. And some more text.
+\subsection{Main vibration-driving vortical structure}\label{ssec:svivRegimeVortStruct}
+Recall Figs. \ref{fig:yStrRMS1} and \ref{fig:yStrFreq5}. Out of all thirteen variants of $\ured$ studied in the pure cruciform case, seven within $\urse \leq \ured \leq \urtt$ sustain high-amplitude vibrations with no foreseeable upper limit within our observation window. For a more complete understanding of the mechanism driving the vibration, we need to know what are the vortical structures dominating the flow are and how they interact with each other.
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.38\textwidth}
+\includegraphics[width=0.48\textwidth]{figs/probe90YU10}
+\caption{Distribution of normalised frequency of vortex shedding, along the span of the cylinder of the pure cruciform at $\ured = \urte$.}
+  \label{fig:probe90YU10}
+\end{figure}
+
+Let us denote coordinates in our simulation domain in the following manner: $\left( X, Y, Z \right) = \left( \frac{x}{D}, \frac{y}{D}, \frac{z}{D} \right)$. We sampled the $y$-component velocity fluctuations on the $\left ( X, Y \right ) = \left ( 1.96, 0 \right )$ line, along the span of the cylinder in $0.5D$ increments, i.e. at coordinates $\left ( 1.96, 0, 7.5 \right )$, $\left ( 1.96, 0, 7.0 \right )$, \dots, $\left ( 1.96, 0, -7.5 \right )$. The distance $X = 1.96$ from the origin is equivalent to $1D$ downstream the trailing edge of the strip plate, and we chose this location as it is not too close to the cruciform that the vortical structures have not fully formed, and not too far, obfuscating meaningful observation of the structures.
+
+The shedding of vortical structures leave their footprint on the flow field in the form of velocity fluctuations. Our choice of analysing the fluctuations of the $y$-component of velocity is made due to the fact that our oscillator is constrained to move only in the transverse direction. Then, we processed the velocity fluctuations with FFT to obtain the Fourier transform of the fluctuation signals at each spanwise location. The combines Fourier transforms are presented using a colour map in Fig. \ref{fig:probe90YU10}. In this figure, every point is a result of that FFT giving us a spatial understanding of the vortical structures present in the flow. The abscissa and ordinates denotes $\fstr$ and $Z$ coordinates respectively, while the bar legend gives the amplitude of the FFT result.
+
+Through inspection, we immediately notice two frequency bands with high amplitudes namely $\fstr \approx 1$ and $\fstr \approx 4.5$. The locations of these bands are between $3 \leq Z \leq 4.5$ for the former and $4.5 < Z \leq 7$ for the latter. Aided with this visualisation, we can give meaning to the $x$ and $z$-components of vorticity visualised in Fig. \ref{fig:vortStruct90} . The slices in Fig. \ref{fig:vortStruct90} visualise the distribution of the $x$ (streamwise) and $z$ (Karman) components of vorticity at the $X = 1.96$ plane. The plane is viewed from downstream (viewer standing at $X = 1.96$, looking towards the cruciform), and we present the vorticites in units of \si{\per\second}. Furthermore, the visualisations are made when the lift coefficient Cl is at a maximum ($\text{Cl}_{\text{max}}$).
+
+Comparing Fig. \ref{fig:probe90YU10} with Fig. \ref{fig:vortStruct90} suggests that the $\fstr \approx 1$ band is actually due to the shedding of streamwise vortex of a scale close to $1D$ while the $\fstr \approx 4.5$ seems to be due to the shedding of Karman vortices. Contrary to the vortical structure commonly observed in studies of isolated circular cylinders \citep{Deng2007,Kinaci2016,Duranay2020}, in the pure cruciform case, two distinct vortical structures take shape in the flow, namely streamwise and Karman vortices. This is consistent with the findings in \citet{Koide2017} or \citet{Zhao2018a}, where they observed a pair of streamwise vortices on a scale of $\approx 1D$ form in the vicinity of the cruciform juncture, and Karman vortices further away in the spanwise direction. Note that the vibration-driving streamwise vortices forming close to the cruciform juncture exist in pairs: in Fig. \ref{fig:vorx90}, we observe one rotate in the clockwise direction when $Z > 0$ and the other in the counter-clockwise direction when $Z < 0$. What results from this counter-rotating vortex pair is a downward thrust, propelling the cylinder upwards, and consistent with the fact that we visualised the vorticity fields when the Cl is at a maximum. We also observe the core of both streamwise vortices lie approximately on the same $Y$-plane, parallel to the axis of the cylinders.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorx90}
+    \caption{$x$-component vorticity}
+    \label{fig:vorx90}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorz90}
+    \caption{$z$-component vorticity}
+    \label{fig:vorz90}
+  \end{subfigure}
+
+  \caption{Dominant vortical structures at $\ured = \urte$ observed in the pure cruciform case. The slice shown here is the $x/D = 1.96D$ ($1D$ downstream the trailing edge of strip plate) plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct90}
+\end{figure}
+
+\subsection{Phase lag between Cl and $\ystr$} \label{ssec:phaseLag90}
+
+In this study, we compute the phase lag $\plag$ by taking the Hilbert transform of both $\ystr$ and Cl signals, as \citet{Khalak1999} did in their VIV study of isolated circular cylinders. However, since Hilbert transform only produce physically meaningful results when used on monocomponent signals \citep{Huang1998,Huang2005,Huang2014}, the signals first needs to be decomposed into components that satisfy the aforementioned condition, referred to in the literature as the intrinsic mode function (IMF). To achieve this, we implement the ensemble empirical mode decomposition (EEMD) \citep{Wu2008}.
+
+The word ``ensemble'' in EEMD refers to the fact that it is an adaptation of the empirical mode decomposition (EMD) algorithm that takes the ensemble average of $n$-variants of the same IMF. The method outlined by the original authors of EEMD \citep{Wu2008} to produce $n$-variants of the same IMF is by producing $n$ white noise signals of equal length to the signal being decomposed, with an amplitude 10\% to 20\% the amplitude of the standard deviation of the original signal. Then, we add the $n$-number of white noise signals to the signal being decomposed, creating $n$-variants of the original signal. Each variant is then decomposed according to the following rule:
+
+\begin{enumerate} \label{enumerate:emd}
+  \item Connect all the signal maxima/minima with cubic splines, thus obtaining the signal envelope. \label{enum:envelope}
+  \item Determine the local mean of the envelope for the span of the data. \label{enum:localMean}
+  \item Compute the difference between the local mean of the envelope and the original data. \label{enum:difference}
+  \item Repeat steps \ref{enum:envelope} and \ref{enum:localMean} on the difference computed in \ref{enum:difference} until we obtain an our first IMF (IMF 1). \label{enum:imf}
+  \item Subract IMF 1 from the original signal and we are left with the remainder of the signal, upon which steps \ref{enum:envelope} to \ref{enum:imf} are repeated, producing IMF 2, IMF 3 and so on until we are left with what is called the residual of the original signal, from which no more IMF can be extracted.
+
+\end{enumerate}
+
+\noindent Since we constructed $n$-variants of the signal earlier, we effectively have, through the EMD algorithm described, derived $n$-variants of IMF 1, IMF 2 and so on. The ensemble part of EEMD now comes to play, when we averaged all $n$-variants of IMF 1, IMF 2, etc., giving us the ensemble version of each IMF. These are the IMFs that we use in our Hilbert transform. In this work, we produced 150 variants of the original signals using white noises 20\% the amplitude of the standard deviation of the original signal.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{figs/phaseLag5}
+  \caption{Phase lag $\plag$ (\si{\degree}) between Cl and $\ystr$ when \angfi{}.}
+  \label{fig:phaseLag90deg}
+\end{figure}
+
+Once the IMF components are retrieved, we compute the instantaneous phase of the IMFs $C_{1},C_{2},\dots,C_{i}$ by constucting an analytical signal $z \left( t \right)$ from them in the following manner. First we compute the Hilbert transform of the IMF, $H_{i}$ (see Eq. \ref{eq:hilbertTransform}),
+
+\begin{equation}
+  H_{i} \left( t \right) = \frac{1}{\pi} \text{PV} \int\limits_{}^{\infty} \frac{C_{i} \left( \tau \right)}{t - \tau} d\tau,
+  \label{eq:hilbertTransform}
+\end{equation}
+
+\noindent where PV means the Cauchy principal value. Then, we construct $z \left( t \right)$ as shown in Eq. \ref{eq:analiticalSignal}.
+
+\begin{equation}
+  z \left( t \right) = C_{i} \left( t \right) + i H_{i} \left( t \right) = a(t) \cdot e^{i \; \theta(t)}.
+  \label{eq:analiticalSignal}
+\end{equation}
+
+\noindent The $i$ in Eq. \ref{eq:analiticalSignal} represents the complex number. In the exponent form of $z \left( t \right)$, $a(t) = \sqrt{C^{2}_{i} \left( t \right) + H^{2}_{i} \left( t \right)}$ and $\theta (t) = \arctan \left( H_{i}/C_{i} \right)$ describes the instantaneous amplitude and phase of the IMF, respectively. The lift coefficient Cl and the cylinder displacement $y$ each has their own instantaneous phases $\theta_{\text{Cl}}(t)$ and $\theta_{y}(t)$. The characteristic phase lag $\plag$ is thus defined such that
+
+\begin{equation}
+  \plag = \frac{1}{T} \int_{0}^{T} \left[ \theta_{\text{Cl}}(t) - \theta_{y}(t) \right] dt.
+  \label{eq:phaseLagDefinition}
+\end{equation}
+
+The characteristic phase angle $\plag$ defined in Eq. \ref{eq:phaseLagDefinition} is what we summarise against $\ured$ in Fig. \ref{fig:phaseLag90deg}. Note that the $\plag$ pattern between $0 \leq \ured \leq \ursi$ resembles that which is found in isolated cylinder systems undergoing KVIV. We also observe that $\plag$ starts to drop when $\ured = \urse$, supporting the view that a fundamental change in vibration-driving mechanism took place at that $\ured$, culminating in the emergence of the initial branch for SVIV at $\ured = \urei$.
+
+\section{Transition to Karman vortex-driven vibration}\label{sec:transitionToKarman}
+
+As we reduce the cruciform angle to \angfo{} and \angth{}, we find that the SVIV branch observed in the pure cruciform case as $\ured \geq \urse$ disappear, as one can inspect in Fig. \ref{fig:yStrRMS23}. For the \angth{} cruciform, even $\yrms$ at the KVIV upper branch ($\ured = \urtw$) is lower than the corresponding values for for both the \angfi{} and \angfo{} cruciforms.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS2}
+  \caption{The \angfo{} cruciform.}
+    \label{fig:yStrRMS2}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrRMS3}
-    \caption{Tilt angle $\alpha = \SI{45}{\degree}$.}
+    \caption{The \angth{} cruciform.}
     \label{fig:yStrRMS3}
   \end{subfigure}
-  \caption{Evolution of the normalised RMS amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, in the region where Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:yStrRMSSuppressed}
+
+  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrsm$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciform.}
+  \label{fig:yStrRMS23}
 \end{figure}
+
+Another striking departure from the trend observed in the pure cruciform case, can be found in the evolution of $\fstr$ in Fig. \ref{fig:yStrFreq23}. For the \angfo{} cruciform, $\fstr$ seems to fluctuate with respect to $\ured$ - suggesting instability in the dominant flow structures existing in this configuration.
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clRMS3}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
-    \label{fig:clRMS3}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq4}
+    \caption{The \angfo{} cruciform.}
+    \label{fig:yStrFreq4}
   \end{subfigure}
 
-  \caption{Evolution of the RMS amplitude of lift coefficient $\clrms$,  with respect to reduced velocity $\ured$, in the region where Karman and streamwise vortex-driven vibrations are most suppressed.} \label{fig:clRMSSuppressed}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clFreq3}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
-    \label{fig:clFreq3}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq3}
+    \caption{The \angth{} cruciform.}
+    \label{fig:yStrFreq3}
   \end{subfigure}
 
-  \caption{Evolution of the normalised frequency of lift coefficient, $\fclstr$ with respect to reduced velocity $\ured$ in the region where Karman and streamwise vortex-induced vibrations are most suppressed.} \label{fig:clFreqSuppressed}
+  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms.}
+  \label{fig:yStrFreq23}
 \end{figure}
 
-\section{Karman vortex-driven vibration regime}\label{sec:enhKarmanRegime}
+
+
+\section{Karman vortex-driven vibration}\label{sec:enhKarmanRegime}
 
 \begin{figure}
   \centering
   \begin{subfigure}[h]{0.35\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq2}
-    \caption{Tilt angle $\alpha = \SI{22.5}{\degree}$.}
+    \caption{Tilt angle $\alpha = \angtw{}$.}
     \label{fig:yStrFreq2}
   \end{subfigure}
 
   \begin{subfigure}[h]{0.35\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq1}
-    \caption{Tilt angle $\alpha = \SI{0}{\degree}$.}
+    \caption{Tilt angle $\alpha = \angon{}$.}
     \label{fig:yStrFreq1}
   \end{subfigure}
   \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the Karman vortex-driven vibration regime.} \label{fig:yStrFreqKarman}
@@ -646,13 +753,13 @@ We then continue our exploration with \SI{45}{\degree}. And some more text.
   \centering
   \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/clFreq2}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \caption{Evolution of at $\alpha = \angth{}$.}
     \label{fig:clFreq2}
   \end{subfigure}
 
   \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/clFreq1}
-    \caption{Evolution of at $\alpha = \SI{45}{\degree}$.}
+    \caption{Evolution of at $\alpha = \angth{}$.}
     \label{fig:clFreq1}
   \end{subfigure}
 
