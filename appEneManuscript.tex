@@ -595,7 +595,7 @@ The trend found in $\fclstr$ vs. $\ured$ is very similar to that found in Fig. \
     \caption{Evolution of $\clrms$ with respect to $\ured$.}
     \label{fig:clRMS5}
   \end{subfigure}
-
+  \hspace{6mm}
   \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/clFreq5}
     \caption{Evolution of $\fclstr$ with respect to $\ured$}
@@ -630,14 +630,14 @@ Comparing Fig. \ref{fig:probe90YU10} with Fig. \ref{fig:vortStruct90} suggests t
     \caption{$x$-component vorticity}
     \label{fig:vorx90}
   \end{subfigure}
-
+  \hspace{6mm}
   \begin{subfigure}[h]{0.28\textwidth}
     \includegraphics[width=\textwidth]{figs/vorz90}
     \caption{$z$-component vorticity}
     \label{fig:vorz90}
   \end{subfigure}
 
-  \caption{Dominant vortical structures at $\ured = \urte$ observed in the pure cruciform case. The slice shown here is the $x/D = 1.96D$ ($1D$ downstream the trailing edge of strip plate) plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct90}
+  \caption{Dominant vortical structures at $\ured = \urte$ observed in the pure cruciform case. The vorticity slices shown are the $x$ and $y$-component vorticities at $x/D = 1.96D$ ($1D$ downstream the trailing edge of strip plate) plane, viewed orthogonal to that plane from downstream. The vorticities have a unit of \si{\per\second}.} \label{fig:vortStruct90}
 \end{figure}
 
 \subsection{Phase lag between Cl and $\ystr$} \label{ssec:phaseLag90}
@@ -685,6 +685,8 @@ Once the IMF components are retrieved, we compute the instantaneous phase of the
   \label{eq:phaseLagDefinition}
 \end{equation}
 
+Out of $C_{i}$ IMFs for each of $\ystr$ and Cl, we select the ones for computation of instantaneous phase according to the following rule. First, we choose the IMF component of $\yrms$ with the largest \rms{} amplitude to represent the original $\ystr$ signal. Then, we choose the component of Cl with the highest correlation to the IMF component of $\ystr$, to represent the Cl signal. The degree of correlation is determined by computing the cross-correlation between the two.
+
 The characteristic phase angle $\plag$ defined in Eq. \ref{eq:phaseLagDefinition} is what we summarise against $\ured$ in Fig. \ref{fig:phaseLag90deg}. Note that the $\plag$ pattern between $0 \leq \ured \leq \ursi$ resembles that which is found in isolated cylinder systems undergoing KVIV. We also observe that $\plag$ starts to drop when $\ured = \urse$, supporting the view that a fundamental change in vibration-driving mechanism took place at that $\ured$, culminating in the emergence of the initial branch for SVIV at $\ured = \urei$.
 
 \section{Transition to Karman vortex-driven vibration}\label{sec:transitionToKarman}
@@ -698,14 +700,14 @@ As we reduce the cruciform angle to \angfo{} and \angth{}, we find that the SVIV
   \caption{The \angfo{} cruciform.}
     \label{fig:yStrRMS2}
   \end{subfigure}
-
+  \hspace{6mm}
   \begin{subfigure}[h]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrRMS3}
     \caption{The \angth{} cruciform.}
     \label{fig:yStrRMS3}
   \end{subfigure}
 
-  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrsm$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciform.}
+  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciform.}
   \label{fig:yStrRMS23}
 \end{figure}
 
@@ -718,7 +720,7 @@ Another striking departure from the trend observed in the pure cruciform case, c
     \caption{The \angfo{} cruciform.}
     \label{fig:yStrFreq4}
   \end{subfigure}
-
+  \hspace{6mm}
   \begin{subfigure}[h]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq3}
     \caption{The \angth{} cruciform.}
@@ -729,7 +731,90 @@ Another striking departure from the trend observed in the pure cruciform case, c
   \label{fig:yStrFreq23}
 \end{figure}
 
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS4}
+    \caption{The \angfo{} cruciform.}
+    \label{fig:clRMS4}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS3}
+    \caption{The \angth{} cruciform.}
+    \label{fig:clRMS3}
+  \end{subfigure}
 
+  \label{fig:clRMS43}
+  \caption{Evolution of the normalised Cl \rms{} amplitude, $\clrms$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq4}
+    \caption{The \angfo{} cruciform.}
+    \label{fig:clFreq4}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq3}
+    \caption{The \angth{} cruciform.}
+    \label{fig:clFreq3}
+  \end{subfigure}
+
+  \label{fig:clFreq43}
+  \caption{Evolution of the normalised Cl frequency, $\fclstr$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms.}
+\end{figure}
+
+\subsection{Main vibration-driving vortical structure}\label{ssec:transitionalRegimeVortStruct}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/probe675YU10}
+    \caption{The \angfo{} cruciform.}
+    \label{fig:probe675YU10}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/probe45YU10}
+    \caption{The \angth{} cruciform.}
+    \label{fig:probe45UU10}
+  \end{subfigure}
+
+  \caption{Distribution of normalised frequency of vortex shedding, along the span of the cylinder of the pure cruciform at $\ured = \urte$, for the \angfo{} and \angth{} cruciforms.}
+  \label{fig:probe67545YU10}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorx675}
+    \caption{The $x$-component vorticity, \angfo{} cruciform.}
+    \label{fig:vorx675}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorz675}
+    \caption{The $z$-component vorticity, \angfo{} cruciform.}
+    \label{fig:vorz675}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorx45}
+    \caption{The $x$-component vorticity, \angth{} cruciform.}
+    \label{fig:vorx45}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.28\textwidth}
+    \includegraphics[width=\textwidth]{figs/vorz45}
+    \caption{The $z$-component vorticity, \angth{} cruciform.}
+    \label{fig:vorz45}
+  \end{subfigure}
+
+  \caption{Dominant vortical structures at $\ured = \urte$ observed in the \angfo{} and \angth{} cases. The vorticity slices shown are the $x$ and $y$-component vorticities at the $x/D = 1.96D$ plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct67545}
+\end{figure}
 
 \section{Karman vortex-driven vibration}\label{sec:enhKarmanRegime}
 
