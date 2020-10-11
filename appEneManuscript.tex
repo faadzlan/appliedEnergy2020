@@ -109,6 +109,9 @@
 \newcommand{\fstr}{f^{*}} %the normalised vibration frequency
 \newcommand{\fn}{f_{n}} %system natural frequency
 \newcommand{\fk}{f_{k}} %the coarsest grid in a grid independence study
+\newcommand{\fvstr}{f^{*}_{v}} %normalise vortex shedding frequency
+\newcommand{\fvk}{f_{v,\text{Karman}}} %Karman vortex shedding frequency
+\newcommand{\fvkstr}{f^{*}_{v,\text{Karman}}} %normalised Karman vortex shedding frequency
 \newcommand{\fcyl}{f_{\text{cyl.}}} %frequency of cylinder vibration
 \newcommand{\fosc}{f_{\text{osc.}}} %frequency of cylinder oscillation
 \newcommand{\fclstr}{f_{\text{Cl}}^{*}} %normalised frequency of lift coefficient
@@ -578,13 +581,13 @@ Our experiments collect time series data of cylinder displacement $y$, from whic
 We show the evolution of the normalised cylinder vibration frequency $\fstr$ with respect to $\ured$ in Fig. \ref{fig:yStrFreq5}. Inspecting Fig. \ref{fig:yStrFreq5}, we immediately notice two distinct evolutionary pattern for $\fstr$with a sharp boundary at $\ured = \ursi$. Between $\uron \leq \ured \leq \ursi$, the $\fstr$ trend follows closely the shedding frequency of Karman vortices from an isolated, fixed circular cylinder \citep{Blevins1990}. The Karman vortex shedding frequency is given as an empirical equation in Eq. \ref{eq:karmanSheddingFreq}.
 
 \begin{equation}
-  f_{v} = 0.198 \left( 1 - \frac{19.7}{\re} \right) DU
+  \fvk = 0.198 \left( 1 - \frac{19.7}{\re} \right) DU
   \label{eq:karmanSheddingFreq}
 \end{equation}
 
-\noindent Here, $f_{v}$, $D$ and $U$ are the vortex shedding frequency, diameter of the isolated circular cylinder and $U$ the freestream velocity respectively. We can easily see how $f_{v}$ is a linear function of $U$, and this is what gives rise to the linear pattern of $\fstr$ within $\uron \leq \ured \leq \ursi$. Then, within $\urse \leq \ured \leq \urtt$, $\fstr$ drops close to 1, indicating synchronisation between lift and cylinder vibration. We think this synchronisation is what gives rise to the bigger $\ystr$, compared to $\uron \leq \ured \leq \ursi$.
+\noindent Here, $\fvk$, $D$ and $U$ are the vortex shedding frequency, diameter of the isolated circular cylinder and $U$ the freestream velocity respectively. We can easily see how $\fvk$ is a linear function of $U$, and this is what gives rise to the linear pattern of $\fstr$ within $\uron \leq \ured \leq \ursi$. Then, within $\urse \leq \ured \leq \urtt$, $\fstr$ drops close to 1, indicating synchronisation between lift and cylinder vibration. We think this synchronisation is what gives rise to the bigger $\ystr$, compared to $\uron \leq \ured \leq \ursi$.
 
-Inspecting the evolution of \rms{} amplitude of lift coefficient $\clrms$ and the normalised lift coefficient frequency $\fclstr$ with respect to $\ured$ in Fig. \ref{fig:cl90}, provided more evidence supporting the assertion that $\ured = \urse$ is a boudary berween two vibration-driving mechanisms. In fact, the observation at $\urse$ in Fig. \ref{fig:clRMS5} indicates that the SVIV regime is still in its infancy, due to the dip in $\clrms$ at that $\ured$, compared to $\ured = \ursi$. In Fig. \ref{fig:clFreq5}, we also draw a dashed line illustrating $f^{*}_{v} = f_{v}/D$, where $f_{v}$ is the shedding frequency of Karman vortices from a smooth isolated circular cylinder described in Eq. \ref{eq:karmanSheddingFreq}.
+Inspecting the evolution of \rms{} amplitude of lift coefficient $\clrms$ and the normalised lift coefficient frequency $\fclstr$ with respect to $\ured$ in Fig. \ref{fig:cl90}, provided more evidence supporting the assertion that $\ured = \urse$ is a boudary berween two vibration-driving mechanisms. In fact, the observation at $\urse$ in Fig. \ref{fig:clRMS5} indicates that the SVIV regime is still in its infancy, due to the dip in $\clrms$ at that $\ured$, compared to $\ured = \ursi$. In Fig. \ref{fig:clFreq5}, we also draw a dashed line illustrating $f^{*}_{v} = \fvk/D$, where $\fvk$ is the shedding frequency of Karman vortices from a smooth isolated circular cylinder described in Eq. \ref{eq:karmanSheddingFreq}.
 
 The trend found in $\fclstr$ vs. $\ured$ is very similar to that found in Fig. \ref{fig:yStrFreq5}. We interpret this similarity as an indication of the symmetry of lift produced along the cylinder. Our reasoning stems from the findings of \citet{Zhao2018a}, who revealed how lift is distributed along the upstream cylinder of a two-cylinder \angfi{} cruciform. They did this by computing sectional lift coefficients along the upstream cylinder. This system produces a symmetric distribution of sectional lift coefficient, with $Z = 0$ being the plane of symmetry. An asymmetrical distribution of the sectional lift coefficient may produce a trend in $\yrms$ and $\fstr$ that is dissimilar to those found in $\clrms$ and $\fclstr$, due to the irregular moment acting on the cylinder.
 
@@ -621,7 +624,7 @@ The shedding of vortical structures leave their footprint on the flow field in t
 
 Through inspection, we immediately notice two frequency bands with high amplitudes namely $\fstr \approx 1$ and $\fstr \approx 4.5$. The locations of these bands are between $3 \leq Z \leq 4.5$ for the former and $4.5 < Z \leq 7$ for the latter. Aided with this visualisation, we can give meaning to the $x$ and $z$-components of vorticity visualised in Fig. \ref{fig:vortStruct90} . The slices in Fig. \ref{fig:vortStruct90} visualise the distribution of the $x$ (streamwise) and $z$ (Karman) components of vorticity at the $X = 1.96$ plane. The plane is viewed from downstream (viewer standing at $X = 1.96$, looking towards the cruciform), and we present the vorticites in units of \si{\per\second}. Furthermore, the visualisations are made when the lift coefficient Cl is at a maximum ($\text{Cl}_{\text{max}}$).
 
-Comparing Fig. \ref{fig:probe90YU10} with Fig. \ref{fig:vortStruct90} suggests that the $\fstr \approx 1$ band is actually due to the shedding of streamwise vortex of a scale close to $1D$ while the $\fstr \approx 4.5$ seems to be due to the shedding of Karman vortices. Contrary to the vortical structure commonly observed in studies of isolated circular cylinders \citep{Deng2007,Kinaci2016,Duranay2020}, in the pure cruciform case, two distinct vortical structures take shape in the flow, namely streamwise and Karman vortices. This is consistent with the findings in \citet{Koide2017} or \citet{Zhao2018a}, where they observed a pair of streamwise vortices on a scale of $\approx 1D$ form in the vicinity of the cruciform juncture, and Karman vortices further away in the spanwise direction. Note that the vibration-driving streamwise vortices forming close to the cruciform juncture exist in pairs: in Fig. \ref{fig:vorx90}, we observe one rotate in the clockwise direction when $Z > 0$ and the other in the counter-clockwise direction when $Z < 0$. What results from this counter-rotating vortex pair is a downward thrust, propelling the cylinder upwards, and consistent with the fact that we visualised the vorticity fields when the Cl is at a maximum. We also observe the core of both streamwise vortices lie approximately on the same $Y$-plane, parallel to the axis of the cylinders.
+Comparing Fig. \ref{fig:probe90YU10} with Fig. \ref{fig:vortStruct90} suggests that the $\fstr \approx 1$ band is actually due to the shedding of streamwise vortex of a scale close to $1D$ while the $\fstr \approx 4.5$ seems to be due to the shedding of Karman vortices. Contrary to the vortical structure commonly observed in studies of isolated circular cylinders \citep{Deng2007,Kinaci2016,Duranay2020}, in the pure cruciform case, two distinct vortical structures take shape in the flow, namely streamwise and Karman vortices. This is consistent with the findings in \citet{Koide2017} or \citet{Zhao2018a}, where they observed a pair of streamwise vortices on a scale of $\approx 1D$ form in the vicinity of the cruciform juncture, and Karman vortices further away in the spanwise direction. Note that the vibration-driving streamwise vortices forming close to the cruciform juncture exist in pairs: in Fig. \ref{fig:vorx90}, we observe one rotate in the clockwise direction when $Z > 0$ and the other in the counter-clockwise direction when $Z < 0$. What results from this counter-rotating vortex pair is a downward thrust, propelling the cylinder upwards, and consistent with the fact that we visualised the vorticity fields when the Cl is at a maximum. We also observe the core of both streamwise vortices lie approximately on the same $Y$-plane, parallel to the axis of the cylinder.
 
 \begin{figure}
   \centering
@@ -690,6 +693,7 @@ Out of $C_{i}$ IMFs for each of $\ystr$ and Cl, we select the ones for computati
 The characteristic phase angle $\plag$ defined in Eq. \ref{eq:phaseLagDefinition} is what we summarise against $\ured$ in Fig. \ref{fig:phaseLag90deg}. Note that the $\plag$ pattern between $0 \leq \ured \leq \ursi$ resembles that which is found in isolated cylinder systems undergoing KVIV. We also observe that $\plag$ starts to drop when $\ured = \urse$, supporting the view that a fundamental change in vibration-driving mechanism took place at that $\ured$, culminating in the emergence of the initial branch for SVIV at $\ured = \urei$.
 
 \section{Transition to Karman vortex-driven vibration}\label{sec:transitionToKarman}
+\subsection{The amplitude and frequency response}\label{ssec:transRegimeAmpFreqResp}
 
 As we reduce the cruciform angle to \angfo{} and \angth{}, we find that the SVIV branch observed in the pure cruciform case as $\ured \geq \urse$ disappear, as one can inspect in Fig. \ref{fig:yStrRMS23}. For the \angth{} cruciform, even $\yrms$ at the KVIV upper branch ($\ured = \urtw$) is lower than the corresponding values for for both the \angfi{} and \angfo{} cruciforms.
 
@@ -711,7 +715,7 @@ As we reduce the cruciform angle to \angfo{} and \angth{}, we find that the SVIV
   \label{fig:yStrRMS23}
 \end{figure}
 
-Another striking departure from the trend observed in the pure cruciform case, can be found in the evolution of $\fstr$ in Fig. \ref{fig:yStrFreq23}. For the \angfo{} cruciform, $\fstr$ seems to fluctuate with respect to $\ured$ - suggesting instability in the dominant flow structures existing in this configuration.
+Another striking departure from the trend observed in the pure cruciform case, can be found in the evolution of $\fstr$ in Fig. \ref{fig:yStrFreq43}. For the \angfo{} cruciform in Fig. \ref{fig:yStrFreq4}, $\fstr$ seems to fluctuate with respect to $\ured$ - suggesting asymmetry in the vortical structures regulating the vibration as discussed previously in \S\ref{ssec:svivRegimeAmpFreqResp}. This fluctuation is however, not as pronounced in Fig. \ref{fig:clFreq3}, compared to Fig. \ref{fig:clFreq4}. We think this behaviour is due to the \angth{} cruciform being less similar to the \angfi{} cruciform, in contrast to \angfo{}. In other words, the \angth{} cruciform is less in transition from the response of the \angfi{} cruciform and the flow around it is more evolved into its new configuration, unlike the \angfo{} cruciform.
 
 \begin{figure}
   \centering
@@ -728,8 +732,12 @@ Another striking departure from the trend observed in the pure cruciform case, c
   \end{subfigure}
 
   \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms.}
-  \label{fig:yStrFreq23}
+  \label{fig:yStrFreq43}
 \end{figure}
+
+We summarised the \rms{} lift coefficients $\clrms$ of the \angfo{} and \angth{} cruciforms in Fig. \ref{fig:yStrRMS23}. Here, we find that their evolution with respect to $\ured$ in Figs. \ref{fig:clRMS4} and \ref{fig:clRMS3} approximates their corresponding $\yrms$ trend in Figs. \ref{fig:yStrRMS2} and \ref{fig:yStrRMS3}. As for the variation of $\fclstr$ with respect to $\ured$, for both the \angfo{} and \angth{} cruciforms, both exhibit outstanding similarity to $\fvk$ of Eq. \ref{eq:karmanSheddingFreq}. This trait hints that vibrations resulting from the \angfo{} and \angth{} cruciforms are primarily regulated by the shedding of Karman vortices.
+
+The fact that the $\fclstr$ trends observed in Figs. \ref{fig:clFreq4} and \ref{fig:clFreq3} do not lead to similar trends in the evolution of $\fstr$ in Figs. \ref{fig:yStrFreq4} and \ref{fig:yStrFreq3} leads us to believe there is something more fundamental at play in developing the $\fstr$ patterns we observed in Figs. \ref{fig:yStrFreq43}. Hence we examined the vortical structures present in the flow surrounding the \angfo{} and \angth{} cruciforms, and discuss our findings in \S\ref{ssec:transitionalRegimeVortStruct}. 
 
 \begin{figure}
   \centering
@@ -764,69 +772,102 @@ Another striking departure from the trend observed in the pure cruciform case, c
   \end{subfigure}
 
   \label{fig:clFreq43}
-  \caption{Evolution of the normalised Cl frequency, $\fclstr$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms.}
+  \caption{Evolution of the normalised Cl frequency, $\fclstr$, with respect to reduced velocity $\ured$, for the \angfo{} and \angth{} cruciforms. The dashed lines outline $\fvk$ from Eq. \ref{eq:karmanSheddingFreq}.}
 \end{figure}
 
 \subsection{Main vibration-driving vortical structure}\label{ssec:transitionalRegimeVortStruct}
+As the first step, we computed the FFT of the $y$-component of velocity similar to what we did in Fig. \ref{fig:probe90YU10} for both the \angfo{} and \angth{} cruciforms. Our initial assesment of the $\fvkstr$ distribution along the cylinder axis in Figs. \ref{fig:probe675YU10} and \ref{fig:probe45YU10} is that there is a strong representation of the Karman shedding frequency in both cases, which at $\ured = \urte$ is $\fvkstr = 4.49$. However, unlike Fig. \ref{fig:probe90YU10}, there is no frequency band close to 1 around the cruciform juncture.
+
+Our first guess is that streamwise vortices driving the vibration in the pure cruciform case do not get initiated once the cruciform angle deviates away from \angfi{}. However, $x$ and $z$-component vorticity visualisations in Fig. \ref{fig:vortStruct67545} points out otherwise. These visualisations are produced under the same conditions as Fig. \ref{fig:vortStruct90}. Inspecting Figs. \ref{fig:vorx675} and \ref{fig:vorx45}, we can quite clearly make out the large-scale streamwise vortices close to the cruciform juncture. We thus expect the cylinder vibration and streamwise vortices to synchronise to each other, resulting in an $\fstr \approx 1$ accross the values of $\ured$ after the lower branch of KVIV which appears at $\ured = \urth$. In addition, we expect there to be a large amplitude response from the cylinder due to the formation and sustenance of the streamwise vortices close to the cruciform juncture. This was not the case.
+
+We think the reason behind this lies in the distribution of the streamwise vortex cells along the cylinder axis. As we mentioned in \S\ref{ssec:svivRegimeVortStruct}, the streamwise vortex pair in the pure cruciform case lie on a plane parallel to the axis of the cylinder. The shared plane of formation parallel to cylinder axis is what we think as key to the large amplitude response observed in the pure cruciform case. A formation plane parallel to the cylinder axis ensures the resulting downward thrust to act perpendicular to the cylinder, securing a larger amplitude response. Also, the streamwise vortex cell on each side of the $Z = 0$ plane must be of opposing rotational direction for the production of thrust. We find these two aspects missing in the \angfo{} and \angth{} cruciforms in Fig. \ref{fig:vortStruct67545}.
+
+What takes place in Figs. \ref{fig:vorx675} and \ref{fig:vorx45} is, two streamwise vortex cells of opposing poles form on each side of the $Z = 0$ plane. The result of this vortical arrangement is severe diminishing of useful thrust, and by extension, lift acting on the cylinder. This explains why the amplitude of $\fvstr$ at and within the vicinity of $1$ is extremely small in comparison to the dominant band close to $\fvkstr = 4.49$, resulting in a low amplitude response for most of the $\ured$ studied, even when $\fstr \approx 1$.
+
+We also managed to find the source of asymmetry in the vortical structure distribution around the cruciform, which becomes apparent upon closer comparison of Fig. \ref{fig:vorz675} and Fig. \ref{fig:vorz45}. The Karman vortices of the \angfo{} cruciform are shed at different phases depending on which side of the $Z = 0$ plane we are observing. For the particular case in Fig. \ref{fig:vorz675}, Karman vortices are being shed from the top of the cylinder when $Z < 0$, and from the bottom of the cylinder when $Z > 0$. What suggested this interpretation is our observation of a strong expression of $-z$ vorticity when $Z < 0$ from the top of the cylinder, while on the $Z > 0$ half of our domain is a strong expression of $+z$ vorticity from the bottom of the cylinder. We do not see this take place in Fig. \ref{fig:vorz45}. On both sides of the $Z = 0$ plane, we note the strong expression of $-z$ vorticity from the top of the cylinder. This asymmetry leads to competing vibration-driving mechanisms resulting in the oscillatory behaviour of $\fstr$ seen in Fig. \ref{fig:yStrFreq4}.
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.4\textwidth}
+
+  \begin{subfigure}[h]{0.46\textwidth}
     \includegraphics[width=\textwidth]{figs/probe675YU10}
-    \caption{The \angfo{} cruciform.}
+    \caption{The $\fvstr$ for the \angfo{} cruciform.}
     \label{fig:probe675YU10}
   \end{subfigure}
   \hspace{6mm}
-  \begin{subfigure}[h]{0.4\textwidth}
+  \begin{subfigure}[h]{0.46\textwidth}
     \includegraphics[width=\textwidth]{figs/probe45YU10}
-    \caption{The \angth{} cruciform.}
-    \label{fig:probe45UU10}
+    \caption{The $\fvstr$ for the \angth{} cruciform.}
+    \label{fig:probe45YU10}
   \end{subfigure}
 
-  \caption{Distribution of normalised frequency of vortex shedding, along the span of the cylinder of the pure cruciform at $\ured = \urte$, for the \angfo{} and \angth{} cruciforms.}
+  \caption{Distribution of normalised frequency of vortex shedding, along the span of the cylinder of the \angfo{} and \angth{} cruciforms at $\ured = \urte$.}
   \label{fig:probe67545YU10}
 \end{figure}
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.28\textwidth}
-    \includegraphics[width=\textwidth]{figs/vorx675}
-    \caption{The $x$-component vorticity, \angfo{} cruciform.}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorx675}
+    \caption{$x$-component vorticity, \angfo{} cruciform.}
     \label{fig:vorx675}
   \end{subfigure}
-  \hspace{6mm}
-  \begin{subfigure}[h]{0.28\textwidth}
-    \includegraphics[width=\textwidth]{figs/vorz675}
-    \caption{The $z$-component vorticity, \angfo{} cruciform.}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorz675}
+    \caption{$z$-component vorticity, \angfo{} cruciform.}
     \label{fig:vorz675}
   \end{subfigure}
 
-  \begin{subfigure}[h]{0.28\textwidth}
-    \includegraphics[width=\textwidth]{figs/vorx45}
-    \caption{The $x$-component vorticity, \angth{} cruciform.}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorx45}
+    \caption{$x$-component vorticity, \angth{} cruciform.}
     \label{fig:vorx45}
   \end{subfigure}
-  \hspace{6mm}
-  \begin{subfigure}[h]{0.28\textwidth}
-    \includegraphics[width=\textwidth]{figs/vorz45}
-    \caption{The $z$-component vorticity, \angth{} cruciform.}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorz45}
+    \caption{$z$-component vorticity, \angth{} cruciform.}
     \label{fig:vorz45}
   \end{subfigure}
 
-  \caption{Dominant vortical structures at $\ured = \urte$ observed in the \angfo{} and \angth{} cases. The vorticity slices shown are the $x$ and $y$-component vorticities at the $x/D = 1.96D$ plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct67545}
+  \caption{Dominant vortical structures at $\ured = \urte$ observed in the \angfo{} and \angth{} cases. The vorticity slices shown are the $x$ and $y$-component vorticities (\si{\per\second}) at the $x/D = 1.96D$ plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct67545}
+\end{figure}
+
+\subsection{Phase lag between Cl and $\ystr$} \label{ssec:phaseLag67545}
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/phaseLag4}
+    \caption{Phase lag for the \angfo{} cruciform.}
+    \label{fig:phaseLag675deg}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/phaseLag3}
+    \caption{Phase lag for the \angth{} cruciform.}
+    \label{fig:phaseLag45deg}
+  \end{subfigure}
+
+  \caption{Phase lag $\plag$ (\si{\degree}) between Cl and $\ystr$ when \angfo{} and \angth{}.}
+  \label{fig:phaseLag67545deg}
 \end{figure}
 
 \section{Karman vortex-driven vibration}\label{sec:enhKarmanRegime}
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.35\textwidth}
+  \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq2}
     \caption{Tilt angle $\alpha = \angtw{}$.}
     \label{fig:yStrFreq2}
   \end{subfigure}
-
-  \begin{subfigure}[h]{0.35\textwidth}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.38\textwidth}
     \includegraphics[width=\textwidth]{figs/yStrFreq1}
     \caption{Tilt angle $\alpha = \angon{}$.}
     \label{fig:yStrFreq1}
