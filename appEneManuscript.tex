@@ -859,39 +859,156 @@ For the \angth{} cruciform in Fig. \ref{fig:phaseLag45deg}, right after lower br
   \label{fig:phaseLag67545deg}
 \end{figure}
 
-\section{Karman vortex-driven vibration}\label{sec:enhKarmanRegime}
+\section{Karman vortex-driven vibration}\label{sec:kvivRegime}
+\subsection{The amplitude and frequency response}\label{ssec:kvivAmpFreqResp}
+As we decrease the cruciform angle even further to \angtw{}, we observe a significant change in the amplitude and frequency response, compared to the transitional stage previously explored in \S\ref{sec:transitionToKarman}. Consider Figs. \ref{fig:yStrRMS4} and \ref{fig:yStrFreq2}. There is no apparent KVIV upper branch similar to what we have seen in Figs. \ref{fig:yStrRMS2} and \ref{fig:yStrFreq4} at $\ured = \urtw$. Then, we observe no significant vibration elicited from the oscillator until $\ured = \urni$. When $\ured = \urni$, there is a abrupt jump in $\yrms$ from $\yrms < 0.02$ to $\yrms \approx 0.3$. The $\fstr$ vs. $\ured$ trend demonstrated a bypassing of the KVIV lower branch - which occurred at $\ured = \urth$ in the transitional stages of \S\ref{sec:transitionToKarman} - right into $\fstr \approx 1$. Past $\ured = \urni$, the value for $\yrms$ continues to increase and saturates at $\ured = \urel$, and $\fstr$ continues to be close to $1$ up to $\ured = \urtt$.
+
+The \angon{} cruciform (Figs. \ref{fig:yStrRMS5}, \ref{fig:yStrFreq1}) in essence exhibits a very similar trend in its $\yrms$ and $\fstr$ evolutions with respect to $\ured$. However, the jump -- which for the \angtw{} cruciform occurs at $\ured = \urni$ -- occurs at a a much lower $\ured = \urfo$. Then, $\yrms$ continues to grow until $\ured = \urni$, reaching a staggering $\yrms \approx 0.8$, a value no other study on energy harvesting using cruciform oscillators has ever achieved. The value of $\yrms$ then saturates close to $0.8$ up to $\ured = \urtt$. Also similar to the \angtw{} cruciform, $\fstr$ falls close to $1$ at same $\ured$ the $\yrms$ jump occurs - hinting at synchronisation between vortex shedding and system natural frequency.
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrFreq2}
-    \caption{Tilt angle $\alpha = \angtw{}$.}
-    \label{fig:yStrFreq2}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS4}
+  \caption{The \angtw{} cruciform.}
+    \label{fig:yStrRMS4}
   \end{subfigure}
   \hspace{6mm}
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/yStrFreq1}
-    \caption{Tilt angle $\alpha = \angon{}$.}
-    \label{fig:yStrFreq1}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrRMS5}
+    \caption{The \angon{} cruciform.}
+    \label{fig:yStrRMS5}
   \end{subfigure}
-  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, in the Karman vortex-driven vibration regime.} \label{fig:yStrFreqKarman}
+
+  \caption{Evolution of the normalised \rms{} amplitude of cylinder displacement $\yrms$, with respect to reduced velocity $\ured$, for the \angtw{} and \angon{} cruciform.}
+  \label{fig:yStrRMS45}
 \end{figure}
 
 \begin{figure}
   \centering
-  \begin{subfigure}[h]{0.38\textwidth}
-    \includegraphics[width=\textwidth]{figs/clFreq2}
-    \caption{Evolution of at $\alpha = \angth{}$.}
-    \label{fig:clFreq2}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq2}
+    \caption{The \angtw{} cruciform.}
+    \label{fig:yStrFreq2}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/yStrFreq1}
+    \caption{The \angon{} cruciform.}
+    \label{fig:yStrFreq1}
   \end{subfigure}
 
-  \begin{subfigure}[h]{0.38\textwidth}
+  \caption{Evolution of the normalised cylinder displacement frequency, $\fstr$, with respect to reduced velocity $\ured$, for the \angtw{} and \angon{} cruciforms.}
+  \label{fig:yStrFreq21}
+\end{figure}
+Apart from the amplitude/frequency response of the \angtw{} cruciform, the evolution of $\clrms$ against $\ured$ showcases a similar trend to the evolution $\yrms$, as shown in Fig. \ref{fig:clRMS2}. The corresponding $\fclstr$ in Fig. \ref{fig:clFreq2} demonstrates the dominant frequency of Cl taking after Eq. \ref{eq:karmanSheddingFreq} between $\uron \leq \ured \leq \urei$, before abruptly dropping close to $1$ between $\urni \leq \ured \leq \urtt$. This in part informs us that the flow between $\uron \leq \ured \leq \urei$ is governed by flow physics that are similar to both \angfo{} and \angth{} within the same $\ured$ range.
+
+For the \angon{} cruciform, we see that the jump in $\clrms$ occurs at the same $\ured$ as the jump in the corresponding $\yrms$ i.e., $\ured = \urfo$. After $\ured = \urfo$, the magnitude of $\clrms$ gradually drops to a final value of $\clrms \approx 0.45$ at $\ured = \urni$, and remains there up to $\ured = \urtt$. Similar to the \angtw{} cruciform, $\fclstr$ grows linearly in accordance with, again, Eq. \ref{eq:karmanSheddingFreq} until the jump in both $\clrms$ and $\yrms$, where $\fclstr$ drops close to $1$ for the rest the $\ured$ we examine in this study.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS2}
+    \caption{The \angtw{} cruciform.}
+    \label{fig:clRMS2}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clRMS1}
+    \caption{The \angon{} cruciform.}
+    \label{fig:clRMS1}
+  \end{subfigure}
+
+  \label{fig:clRMS21}
+  \caption{Evolution of the normalised Cl \rms{} amplitude, $\clrms$, with respect to reduced velocity $\ured$, for the \angtw{} and \angon{} cruciforms.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/clFreq2}
+    \caption{The \angtw{} cruciform.}
+    \label{fig:clFreq2}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
     \includegraphics[width=\textwidth]{figs/clFreq1}
-    \caption{Evolution of at $\alpha = \angth{}$.}
+    \caption{The \angon{} cruciform.}
     \label{fig:clFreq1}
   \end{subfigure}
 
-  \caption{Evolution of the normalised frequency of the lift coefficient,  with respect to reduced velocity $\ured$ in the Karman vortex-driven regime.} \label{fig:clFreqKarman}
+  \label{fig:clFreq21}
+  \caption{Evolution of the normalised Cl frequency, $\fclstr$, with respect to reduced velocity $\ured$, for the \angtw{} and \angon{} cruciforms. The dashed lines outline $\fvk$ from Eq. \ref{eq:karmanSheddingFreq}.}
+\end{figure}
+
+
+\subsection{Main vibration-driving vortical structure}\label{ssec:kvivRegimeVortStruct}
+\begin{figure}
+  \centering
+
+  \begin{subfigure}[h]{0.46\textwidth}
+    \includegraphics[width=\textwidth]{figs/probe225YU10}
+    \caption{The $\fvstr$ for the \angtw{} cruciform.}
+    \label{fig:probe225YU10}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.46\textwidth}
+    \includegraphics[width=\textwidth]{figs/probe00YU10}
+    \caption{The $\fvstr$ for the \angon{} cruciform.}
+    \label{fig:probe00YU10}
+  \end{subfigure}
+
+  \caption{Distribution of normalised frequency of vortex shedding, along the span of the cylinder of the \angtw{} and \angon{} cruciforms at $\ured = \urte$.}
+  \label{fig:probe22500YU10}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorx225}
+    \caption{$x$-component vorticity, \angfo{} cruciform.}
+    \label{fig:vorx225}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorz225}
+    \caption{$z$-component vorticity, \angfo{} cruciform.}
+    \label{fig:vorz225}
+  \end{subfigure}
+
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorx00}
+    \caption{$x$-component vorticity, \angth{} cruciform.}
+    \label{fig:vorx00}
+  \end{subfigure}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \centering
+    \includegraphics[width=0.7\textwidth]{figs/vorz00}
+    \caption{$z$-component vorticity, \angth{} cruciform.}
+    \label{fig:vorz00}
+  \end{subfigure}
+
+  \caption{Dominant vortical structures at $\ured = \urte$ observed in the \angtw{} and \angon{} cases. The vorticity slices shown are the $x$ and $y$-component vorticities (\si{\per\second}) at the $x/D = 1.96D$ plane, viewed orthogonal to that plane from downstream.} \label{fig:vortStruct22500}
+\end{figure}
+
+\subsection{Phase lag between Cl and $\ystr$} \label{ssec:phaseLag22500}
+\begin{figure}
+  \centering
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/phaseLag2}
+    \caption{Phase lag for the \angtw{} cruciform.}
+    \label{fig:phaseLag225deg}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figs/phaseLag1}
+    \caption{Phase lag for the \angon{} cruciform.}
+    \label{fig:phaseLag00deg}
+  \end{subfigure}
+
+  \caption{Phase lag $\plag$ (\si{\degree}) between Cl and $\ystr$ when \angtw{} and \angon{}.}
+  \label{fig:phaseLag22500deg}
 \end{figure}
 
 \section{Power characteristic in $\alpha$ -- $\ured$ parameter space}\label{sec:powerCharacteristic}
