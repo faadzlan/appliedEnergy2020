@@ -396,13 +396,13 @@ System natural frequency, $f_{n}$ (Hz)     & $4.42$        & $4.4$ to $4.79$  \\
 \end{tabular*}
 \end{table}
 
-A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:keyDimensions}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump. The finished product gave an operability range between \uth{} and \uel{}, which translates to $\urth \leq \ured \leq \urel$ for an circular cylinder of diameter \SI{10}{\milli\metre}. The turbulence level ranges between $5\%$ to $8\%$ when the freestream velocity $U_{\infty} \geq \uei$.
+A voltage controller regulates the power driving the $3.728$ kW (5 hp) centrifugal pump. To set the freestream velocity in the open flow channel, we placed an acoustic Doppler velocimeter (ADV) sampling at in an empty test section, filled with plain tap water to a height of \SI{100}{\milli\metre}, on the centreline of the channel, as pictured in Fig. \ref{fig:channelSchematic}. The height of \SI{100}{\milli\metre} is also the water level we conduct our experiments in. We keep the water level at this height of \SI{100}{\milli\metre} during all data collections to achieve a flow ambience analogous to our benchmark study of \citet{Koide2013}, facilitating comparison between the two. Then, we sampled the velocity of the flow at different input voltages by the voltage controller, the final product being an input voltage $V_{\text{in}}$ (V) versus centreline velocity $U_{\text{cent.}}$ calibration curve. This calibration curve allows us to set the freestream velocity of the open flow channel by specifying the input voltage to the pump. The finished product gave an operability range between \uth{} and \uel{}, which translates to $\urth \leq \ured \leq \urel$ for an circular cylinder of diameter \SI{10}{\milli\metre}. The turbulence level ranges between $5\%$ to $8\%$ when the freestream velocity $U_{\infty} \geq \uei$.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\textwidth]{figs/keyDimensions}
+  \includegraphics[width=0.6\textwidth]{figs/channelSchematic}
   \caption{The side view of our test section. For a more valid benchmarking of our open channel flow with a similar system in \citet{Koide2013}, we keep the water level to \SI{100}{\milli\metre}.}
-  \label{fig:keyDimensions}
+  \label{fig:channelSchematic}
 \end{figure}
 
 We measured the cylinder displacement $y$ as a function of time by placing a visual marker on the support plate of the cylinder (see Fig. \ref{fig:rigSketch}) and capturing the motion of the marker using a video camera positioned perpendicular to the support plate. The motion of the marker is then analysed using \textit{Tracker}: a motion analysis tool built on the Open Source Physics Java framework (for recent implementation examples, see \citet{Wen2020}  or \citet{Krishnendu2020}).
@@ -417,10 +417,10 @@ For the benchmarking, we chose the reduced velocity $\ured = \urte$, as the cyli
 \end{figure}
 
 \section{Numerical setup validation} \label{sec:numSetup}
-\subsection{Grid independency study via Richardson extrapolation and grid convergence index} \label{ssec:richExtrap}
-Like the first, the second method solves the governing equations on successively finer grids. However, instead of arguing that one obtains similar results on all the grids, the investigator checks whether the quantities of interest tend towards value, as one solves the governing equation on successively finer grid resolutions \citep{Richardson1927,Stern2001}. This method, of checking for convergence pays attention not only on the presumed converged value but also on the trend of convergence. Literature that employ this method impose a monotonic convergence condition \citep{Stern2001,MatAli2011,Ali2012,Maruai2018} on their quantities of interest, adding an extra layer of confidence in the final form of their spatial discretisation.
+\subsection{Richardson extrapolation and the grid convergence index (GCI)} \label{ssec:richExtrap}
+In this work, we establish the grid independency of the solution using the Richardson extrapolation and the grid convergence index (GCI) \citep{Richardson1927,Stern2001}. The Richardson extrapolation and GCI provides us with a procedure to quantitatively measure on the degree of convergence for the quantities of interest in a numerical study. This method also forces us to pay attention to the trend of convergence of the quantities of interest, requiring a monotonic convergence before proceeding to data collection \citep{Stern2001,MatAli2011,Ali2012,Maruai2018}.
 
-Additionally, this method allows for a quantitative description of the degree of convergence through the grid convergence index (GCI). Let $f_{1},f_{2},f_{3},\dots,\fk$ denote the quantity of interest obtained from several grids. A larger subscript indicates a coarser grid, thus, $f_{1}$ denotes the finest while $\fk$ denotes the coarsest grid. Let the difference between successive solutions be $\epsilon_{2,1},\epsilon_{3,2},\epsilon_{4,3},\dots,\epsilon_{n,n-1}$, where $\epsilon_{2,1} = f_{2} - f_{1}$, $\epsilon_{3,2} = f_{3} - f_{2}$ and so on. Then, the GCI is defined as
+Let $f_{1},f_{2},f_{3},\dots,\fk$ be the quantity of interest obtained from several grid resolutions. We assign a larger subscript for a coarser grid, thus ascribing $f_{1}$ to the finest and $\fk$ to the coarsest grid. Let the difference between successive solutions be $\epsilon_{2,1},\epsilon_{3,2},\epsilon_{4,3},\dots,\epsilon_{n,n-1}$, where $\epsilon_{2,1} = f_{2} - f_{1}$, $\epsilon_{3,2} = f_{3} - f_{2}$ and so on. Then, the GCI is defined as
 
 \begin{equation}
   \text{GCI}_{i+1,i} = F_{s} \frac{\left |\epsilon_{i+1,i} \right |}{f_{i} \left ( r^{p} - 1 \right )} \times 100\%,
@@ -429,7 +429,7 @@ Additionally, this method allows for a quantitative description of the degree of
 
 \noindent where $F_{s}$, $f_{i}$ and $r^{p}$ denotes the safety factor $\left ( = 1.25 \right )$, quantity of interest and the refinement ratio, $r$, between successive grids raised to the order of accuracy of the series of solution, $p$. We refer the reader to \citet{Stern2001,Langley2018} for a more detailed discussion on $r^{p}$.
 
-We can estimate what the solution approaches as the grid size approaches zero by using the $\text{p}^{\text{th}}$ method. Briefly, we compute the generalised Richardson extrapolation of the quantity of interest as follows.
+We can estimate the limit of the solution as the spacing between grid points approache zero via the $\text{p}^{\text{th}}$ method. In essence, we compute the generalised Richardson extrapolation of the quantity of interest as follows.
 
 \begin{equation}
   \fre = f_{1} + \frac{f_{1} - f_{2}}{\rp - 1},
@@ -443,8 +443,7 @@ We can estimate what the solution approaches as the grid size approaches zero by
   \label{eq:percentageDifference}
 \end{equation}
 
-Table \ref{tab:gridIndependency} summarises the result of our grid independency study for the SVIV reduced velocity of $\ured = 22.7$. We identified three quantities central to the investigation of fluid-structure phenomena, especially the flow-induced vibration of a circular cylinder. They are the vibration amplitude, vibration frequency and lift coefficient of the cylinder. We solve the governing equations on three grids which are numbered $1$ for the finest, $2$ for the medium and $3$ for the coarsest, shown in Fig. \ref{fig:convergenceStudy}. If we let $v_{i}$ be the volume of the $i^{\text{th}}$ cell in the grid and $N$ be the total number of cells in the domain, then, the average cell size is
-
+Table \ref{tab:gridIndependency} summarises the result of our grid independency study for the SVIV reduced velocity of $\ured = 22.7$. The flow global quantities we check for convergence are the vibration amplitude, vibration frequency and lift coefficient of the cylinder. To simplify our grid independency study, we chose the pure cruciform configuration (the \angfi{} cruciform) as the representative, and collected data at $\ured = \urte$ on three sets of grid numbered $1$ for the finest, $2$ for the medium and $3$ for the coarsest, shown in Fig. \ref{fig:convergenceStudy}. With $v_{i}$ as the volume of the $i^{\text{th}}$ cell in the grid, and $N$ the total number of cells in our domain, the average cell size becomes
 
 \begin{figure}
   \centering
@@ -453,13 +452,13 @@ Table \ref{tab:gridIndependency} summarises the result of our grid independency 
     \caption{Coarse}
     \label{fig:coarseMesh}
   \end{subfigure}
-
+  \hfill
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/figure6b}
     \caption{Medium}
     \label{fig:mediumMesh}
   \end{subfigure}
-
+  \hfill
   \begin{subfigure}[h]{0.3\textwidth}
     \includegraphics[width=\textwidth]{figs/figure6c}
     \caption{Fine}
@@ -482,18 +481,16 @@ Table \ref{tab:gridIndependency} summarises the result of our grid independency 
   \label{eq:normAveCellSize}
 \end{equation}
 
-Both $\yrms$ and $\clrms$ starts at an initial value smaller than their Richardson extrapolations, $\fre$, before approaching it as we decrease the average cell size, $h$. This similar trend can perhaps be attributed to the causal relationship between the lift coefficient and vibration amplitude. The lift drives and sustains the vibration, hence a small lift produces a small vibration, and when the lift amplitude becomes higher, so too does the vibration amplitude. The vibration frequency, on the other hand, starts at a value larger than its $\fre$ before approaching $\fre$.
+\noindent Both $\yrms$ and $\clrms$ (see Figs. \ref{fig:gciYrms} and \ref{fig:gciClrms}) have initial values smaller than their Richardson extrapolations, $\fre$, before approaching $\fre$, with decreasing $h$. The vibration frequency, on the other hand, starts at a value larger than its $\fre$ before approaching $\fre$, as one can see in Fig. \ref{fig:gciFstr}.
 
-The quantity $\clrms$ experiences the most significant drop in GCI as we refine the grid. The GCI is close to one-third $\left ( 30.92\% \right )$ as we refine the grid from coarse to medium with a refinement ratio of $1.376$. The refinement ratio is calculated by dividing the number of cells in one grid with the next one down the refinement line. Following the grid numbering convention explained previously, dividing the number of cells in the fine grid (grid 1) with the number of cells in the medium grid (grid 2) gives us the refinement ratio from medium to fine, or $r_{2,1}$. Similarly, dividing the number of cells in the medium grid (grid 2) with the number of cells in the coarse grid (grid 3) gives us the refinement ratio from coarse to medium, or $r_{3,2}$. We can generalise this to $i-$number of grids as follows.
+The most significant drop in GCI is experienced by $\clrms$, with increasing refinement of the grid. Refinement from the coarse to medium grid returns a GCI of $30.92\%$, using a refinement ratio of $1.376$. We compute the refinement ratio by dividing the number of cells in one grid with the grid one stage refined. Generalising this to $i$ number of grids returns
 
 \begin{equation}
   r_{i+1,i} = \frac{S_{\text{grid},i+1}}{S_{\text{grid},i}},
   \label{eq:refinementRatio}
 \end{equation}
 
-\noindent where $S_{\text{grid},i}$ denotes the total number of cells in the $i^{\text{th}}$ grid. The GCI of $\clrms$ drops further to $1.63\%$ as the mesh is refined more with a refinement ratio of $1.304$.
-
-The GCI for $\yrms$ also drops by one order of magnitude as can be seen by comparing $\text{GCI}_{3,2}$ with $\text{GCI}_{2,1}$. Again, this similar trend of improvement points to the causal relationship between lift and displacement of the cylinder. The GCI for $\fstr$, however, drops by approximately a factor of $6$ instead of one order of magnitude, unlike the GCIs of $\yrms$ and $\clrms$.
+\noindent where $S_{\text{grid},i}$ denotes the total number of cells in the $i^{\text{th}}$ grid. The GCI of $\clrms$ decreases further to $1.63\%$ with further refinement of the grid. On the other hand, GCI for $\fstr$, shrinks to about one-sixth of its former value.
 
 \begin{table}[width=0.9\linewidth,cols=4,pos=h]
   \caption{Summary of grid independency study.} \label{tab:gridIndependency}
@@ -514,25 +511,55 @@ $\text{GCI}_{3,2}$                                                      & $1.63$
 \end{tabular*}
 \end{table}
 
-We provide visual representations of the convergent $\clrms$, $\yrms$ and $\fstr$ series in Figs. \ref{fig:yrmsGCI}, \ref{fig:fstrGCI} and \ref{fig:clrmsGCI}. Note how the quantity of interest is very close to its Richardson extrapolation at the fine grid (grid 1) for all $\clrms$, $\yrms$ and $\fstr$. This implies that the fine grid already provides adequate spatial discretisation for the problem we are studying, and further refinements, while able to nudge our solutions even closer to the limit that is the Richardson extrapolation, may not be optimal in terms of usage of computational resources. Values of $\yrms$ and $\fstr$ at the fine grid already fall within experimental uncertainty as evidenced by our measurement in \S \ref{ssec:openFlowExp} and the work by \citet{Koide2013}. Hence, all succeeding numerical data are gathered from the fine grid.
-
+Inspecting Figs. \ref{fig:gciYrms}, \ref{fig:gciFstr} and \ref{fig:gciClrms}, we find the quantities of interest to be very close to its Richardson extrapolation at the fine grid (grid 1) for all $\clrms$, $\yrms$ and $\fstr$. We take this as an indication of sufficient spatial discretisation. At this point, we find the trade-off between a solution even closer to the Richardson extrapolation and the increased computational effort no longer appealing, compounded by our observation that values of $\yrms$ and $\fstr$ at the fine grid already fall within experimental uncertainty as evidenced by our measurement in \S \ref{ssec:openFlowExp} and the work by \citet{Koide2013}. We use the fine grid in all simulations of the pure cruciform case, and implemented a similar mesh resolution to all cruciform variants studied in this work.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.39\textwidth]{figs/figure7}
-  \caption{The convergence diagram for $\yrms$. Figure \ref{fig:yrmsGCI}a shows how $\yrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:yrmsGCI}b shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:yrmsGCI}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciYrms-1}
+    \caption{}
+    \label{fig:gciYrms-1}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.38\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciYrms-2}
+    \caption{}
+    \label{fig:gciYrms-2}
+  \end{subfigure}
+
+  \caption{The convergence diagram for $\yrms$. Figure \ref{fig:gciYrms-1} shows how $\yrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:gciYrms-2} shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:gciYrms}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.4\textwidth]{figs/figure8}
-  \caption{The convergence diagram for $\fstr$. Figure \ref{fig:fstrGCI}a shows how $\fstr$ converges close to the Richardson extrapolation value while Fig. \ref{fig:fstrGCI}b shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:fstrGCI}
+  \begin{subfigure}[h]{0.39\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciFstr-1}
+    \caption{}
+    \label{fig:gciFstr-1}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.39\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciFstr-2}
+    \caption{}
+    \label{fig:gciFstr-2}
+  \end{subfigure}
+  \caption{The convergence diagram for $\fstr$. Figure \ref{fig:gciFstr-1} shows how $\fstr$ converges close to the Richardson extrapolation value while Fig. \ref{fig:gciFstr-2} shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:gciFstr}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.43\textwidth]{figs/figure9}
-  \caption{The convergence diagram for $\clrms$. Figure \ref{fig:clrmsGCI}a shows how $\clrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:clrmsGCI}b shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:clrmsGCI}
+  \begin{subfigure}[h]{0.39\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciClrms-1}
+    \caption{}
+    \label{fig:gciClrms-1}
+  \end{subfigure}
+  \hspace{6mm}
+  \begin{subfigure}[h]{0.39\textwidth}
+    \includegraphics[width=\textwidth]{figs/gciClrms-2}
+    \caption{}
+    \label{fig:gciClrms-2}
+  \end{subfigure}
+  \caption{The convergence diagram for $\clrms$. Figure \ref{fig:gciClrms-1} shows how $\clrms$ converges close to the Richardson extrapolation value while Fig. \ref{fig:gciClrms-2} shows how the error (difference between the value obtained from a particular mesh and the Richardson extrapolation) decreases with decreasing grid spacing.} \label{fig:gciClrms}
 \end{figure}
 
 \section{Streamwise vortex-driven vibration}\label{sec:svivRegime}
